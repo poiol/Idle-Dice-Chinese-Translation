@@ -39481,7 +39481,7 @@ Luts.Object.Button = function (_0x168d39, _0x1b5ffc, _0x31281a, _0x56641a, _0x33
   this.lockIcon.anchor.set(0.5);
   this.lockIcon.visible = false;
   this.addChild(this.lockIcon);
-  new Luts.Object.Tooltip(this.state, this.lockIcon, "Locked");
+  new Luts.Object.Tooltip(this.state, this.lockIcon, "锁定");
   this.inputEnabled = true;
   this.mouseIsOver = false;
   this.downCounter = 0;
