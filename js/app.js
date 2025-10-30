@@ -40390,7 +40390,7 @@ Luts.Object.SettingsWindow.prototype.settingClicked = function () {
   this.setting.toggle();
 };
 Luts.Object.CardsWindow = function (_0x47e1b9) {
-  Luts.Object.Window.call(this, _0x47e1b9, "Cards");
+  Luts.Object.Window.call(this, _0x47e1b9, "卡牌库");
   this.types2 = ["caro", "cross", "heart", "pik"];
   this.tabs = new Luts.Object.TabManager(_0x47e1b9, 0, 0);
   this.allCards = this.tabs.add("allCards");
