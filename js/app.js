@@ -41558,7 +41558,7 @@ Luts.Object.ShopWindow.prototype.setStreakText = function () {
     this.boxes.drawRect(_0x1eadf5 * 85, 0, 85, 140);
     this.boxes.endFill();
   }
-  this.streakText.setText("Current Streak: " + this.streak + " Day" + _0xc75270);
+  this.streakText.setText("当前签到天数: " + this.streak + " 天" + _0xc75270);
 };
 Luts.Object.ShopWindow.prototype.claim = function () {
   Luts.Time.lastDailyReward = Math.floor(new Date().getTime() / 86400000) * 86400000;
@@ -41568,7 +41568,7 @@ Luts.Object.ShopWindow.prototype.claim = function () {
   this.streak++;
   Luts.Store.setItem("streak", this.streak);
   this.setStreakText();
-  new Luts.Object.Popup(this.state, "You received " + _0x511387 + " Bonus Points!\nCome back tomorrow for more!");
+  new Luts.Object.Popup(this.state, "您获得了 " + _0x511387 + " 奖励点数!\n明天再来获取更多!");
 };
 Luts.Object.ShopWindow.prototype.addTab = function (_0x5ed0be, _0x20e1fc) {
   var _0x419d80 = this.tabs.add(_0x5ed0be);
@@ -41583,8 +41583,8 @@ Luts.Object.ShopWindow.prototype.addTab = function (_0x5ed0be, _0x20e1fc) {
   return _0x419d80;
 };
 Luts.Object.CasinoWindow = function (_0x40a3ee) {
-  Luts.Object.Window.call(this, _0x40a3ee, "Casinos");
-  this.explainantion = new Luts.Object.Text(_0x40a3ee, 30, 70, "text", "Invest a golden deck into a casino to gain more luck and skills.", 20, "#000000");
+  Luts.Object.Window.call(this, _0x40a3ee, "赌场");
+  this.explainantion = new Luts.Object.Text(_0x40a3ee, 30, 70, "text", "向赌场投资一套镀金卡组，以获得更多幸运和技能。", 20, "#000000");
   this.explainantion.strokeThickness = 0;
   this.addChild(this.explainantion);
   this.tabs = new Luts.Object.TabManager(_0x40a3ee, 0, 0);
@@ -41592,9 +41592,9 @@ Luts.Object.CasinoWindow = function (_0x40a3ee) {
   this.skillsTab = this.tabs.add("skills");
   this.addChild(this.casinosTab);
   this.addChild(this.skillsTab);
-  this.casinosButton = new Luts.Object.Button(_0x40a3ee, 80, 140, "Casinos", "");
+  this.casinosButton = new Luts.Object.Button(_0x40a3ee, 80, 140, "赌场", "");
   this.addChild(this.casinosButton);
-  this.skillsButton = new Luts.Object.Button(_0x40a3ee, 200, 140, "Skills", "");
+  this.skillsButton = new Luts.Object.Button(_0x40a3ee, 200, 140, "技能", "");
   this.addChild(this.skillsButton);
   this.tabs.setTabButton(this.casinosTab, this.casinosButton);
   this.tabs.setTabButton(this.skillsTab, this.skillsButton);
@@ -41606,9 +41606,9 @@ Luts.Object.CasinoWindow = function (_0x40a3ee) {
     Luts.Store.setItem("skillReset", true);
     Luts.Store.setItem("skillResetFix", true);
   }
-  this.resetButton = new Luts.Object.Button(_0x40a3ee, 550, 200, "Reset", "", this.resetSP.bind(this));
+  this.resetButton = new Luts.Object.Button(_0x40a3ee, 550, 200, "重置", "", this.resetSP.bind(this));
   this.skillsTab.addChild(this.resetButton);
-  new Luts.Object.Tooltip(_0x40a3ee, this.resetButton, "Only possible once per investment!");
+  new Luts.Object.Tooltip(_0x40a3ee, this.resetButton, "每次投资后只能重置一次!");
   this.resetButton.setActive(Luts.Store.getItem("skillReset", true));
   this.state.skillPointMulti.onChange.add(function () {
     this.resetSP(true);
@@ -41627,103 +41627,103 @@ Luts.Object.CasinoWindow = function (_0x40a3ee) {
   this.scrollIndex = 0;
   this.casinos = [];
   this.addCasino({
-    title: "Table under a bridge"
+    title: "桥下牌桌"
   });
   this.addCasino({
-    title: "Dirty backyard hut"
+    title: "肮脏的后院小屋"
   });
   this.addCasino({
-    title: "Backdoor of pizza place"
+    title: "披萨店后门"
   });
   this.addCasino({
-    title: "Groundfloor of harbour bar"
+    title: "海港酒吧底层"
   });
   this.addCasino({
-    title: "An actual registered small casino"
+    title: "一个实际注册的小赌场"
   });
   this.addCasino({
-    title: "2-Floor Casino"
+    title: "两层楼赌场"
   });
   this.addCasino({
-    title: "3-Floor Casino"
+    title: "三层楼赌场"
   });
   this.addCasino({
-    title: "1 Star Casino"
+    title: "一星级赌场"
   });
   this.addCasino({
-    title: "2 Star Casino"
+    title: "二星级赌场"
   });
   this.addCasino({
-    title: "3 Star Casino"
+    title: "三星级赌场"
   });
   this.addCasino({
-    title: "4 Star Casino"
+    title: "四星级赌场"
   });
   this.addCasino({
-    title: "5 Star Casino"
+    title: "五星级赌场"
   });
   this.addCasino({
-    title: "Casino Village"
+    title: "赌场村"
   });
   this.addCasino({
-    title: "Casino Town"
+    title: "赌场镇"
   });
   this.addCasino({
-    title: "Casino City"
+    title: "赌场城市"
   });
   this.addCasino({
-    title: "Casino Country"
+    title: "赌场国家"
   });
   this.addCasino({
-    title: "Casino-filled Antarctica"
+    title: "遍布赌场的南极洲"
   });
   this.addCasino({
-    title: "Casino-filled Australia"
+    title: "遍布赌场的澳大利亚"
   });
   this.addCasino({
-    title: "Casino-filled Africa"
+    title: "遍布赌场的非洲"
   });
   this.addCasino({
-    title: "Casino-filled South America"
+    title: "遍布赌场的南美洲"
   });
   this.addCasino({
-    title: "Casino-filled Asia"
+    title: "遍布赌场的亚洲"
   });
   this.addCasino({
-    title: "Casino-filled Europe"
+    title: "遍布赌场的欧洲"
   });
   this.addCasino({
-    title: "Casino-filled America"
+    title: "遍布赌场的北美洲"
   });
   this.addCasino({
-    title: "Casino-filled Earth"
+    title: "遍布赌场的地球"
   });
   this.addCasino({
-    title: "Moon Casino"
+    title: "月球赌场"
   });
   this.addCasino({
-    title: "Mars Casino"
+    title: "火星赌场"
   });
   this.addCasino({
-    title: "Artificial Casino Planet"
+    title: "人造赌场星球"
   });
   this.addCasino({
-    title: "Artificial Casino Star"
+    title: "人造赌场恒星"
   });
   this.addCasino({
-    title: "Artificial Casino Galaxy"
+    title: "人造赌场星系"
   });
   this.addCasino({
-    title: "The whole universe filled with casinos"
+    title: "充满赌场的整个宇宙"
   });
   this.addCasino({
-    title: "Casino in heaven"
+    title: "天堂赌场"
   });
   this.addCasino({
-    title: "Casino in hell"
+    title: "地狱赌场"
   });
   this.addCasino({
-    title: "Satans personal casino"
+    title: "撒旦的私人赌场"
   });
   this.initalCasinoLength = this.casinos.length;
   Luts.Events.onDrawCard.add(this.updateContainers, this);
@@ -41748,7 +41748,7 @@ Luts.Object.CasinoWindow.prototype.invest = function (_0x2305f8) {
   _0x2305f8.i;
   _0x2305f8.setActive(false);
   if (this.state.goldenCards >= 52) {
-    new Luts.Object.Popup(this.state, "You will lose all you golden cards, it will be 30% harder to get cards but you get 20% more luck. You will lose all luck.\nInvest?", true, function (_0x1866a1) {
+    new Luts.Object.Popup(this.state, "您将失去所有镀金卡牌，获得卡牌的难度将提高 30%，但幸运值会增加 20%。您将失去所有幸运点数。\n确定投资吗?", true, function (_0x1866a1) {
       _0x2305f8.setActive(true);
       if (_0x1866a1) {
         this.state.prestige3();
@@ -41762,7 +41762,7 @@ Luts.Object.CasinoWindow.prototype.invest = function (_0x2305f8) {
 Luts.Object.CasinoWindow.prototype.updateContainers = function () {
   for (; this.state.casinos.v.greaterThanOrEqualTo(this.casinos.length);) {
     this.addCasino({
-      title: "Interdimensional Casino " + (this.casinos.length - this.initalCasinoLength + 1)
+      title: "跨维度赌场 " + (this.casinos.length - this.initalCasinoLength + 1)
     });
   }
   this.casinos.forEach(this.updateContainer.bind(this));
@@ -41784,16 +41784,16 @@ Luts.Object.CasinoWindow.prototype.addCasino = function (_0x54ae01) {
   var _0x4732ae = this.game.add.image(0, this.scrollIndex++ * 50);
   var _0x19bbb2 = new Luts.Object.Text(this.state, 20, 0, "text", _0x54ae01.title, 24);
   _0x4732ae.addChild(_0x19bbb2);
-  var _0x1c2fd0 = new Luts.Object.Text(this.state, 20, 30, "text", "Cardprogress /" + Luts.Format.Decimal(Math.pow(1.3, this.scrollIndex)), 14, "#000000");
+  var _0x1c2fd0 = new Luts.Object.Text(this.state, 20, 30, "text", "卡牌进度 /" + Luts.Format.Decimal(Math.pow(1.3, this.scrollIndex)), 14, "#000000");
   _0x1c2fd0.strokeThickness = 0;
   _0x4732ae.addChild(_0x1c2fd0);
-  var _0x46ee4a = new Luts.Object.Text(this.state, 170, 30, "text", "Luck Multi: " + Luts.Format.Decimal(Math.pow(1.2, this.scrollIndex)), 14, "#000000");
+  var _0x46ee4a = new Luts.Object.Text(this.state, 170, 30, "text", "幸运倍率: " + Luts.Format.Decimal(Math.pow(1.2, this.scrollIndex)), 14, "#000000");
   _0x46ee4a.strokeThickness = 0;
   _0x4732ae.addChild(_0x46ee4a);
-  var _0x974392 = new Luts.Object.Text(this.state, 320, 30, "text", "BP: +" + Math.min(this.scrollIndex, 33), 14, "#000000");
+  var _0x974392 = new Luts.Object.Text(this.state, 320, 30, "text", "奖励点数: +" + Math.min(this.scrollIndex, 33), 14, "#000000");
   _0x974392.strokeThickness = 0;
   _0x4732ae.addChild(_0x974392);
-  var _0x1682bc = new Luts.Object.Button(this.state, 540, 30, "Invest", "", this.invest.bind(this));
+  var _0x1682bc = new Luts.Object.Button(this.state, 540, 30, "投资", "", this.invest.bind(this));
   _0x1682bc.i = this.scrollIndex - 1;
   _0x4732ae.addChild(_0x1682bc);
   _0x4732ae.btn = _0x1682bc;
@@ -41802,7 +41802,7 @@ Luts.Object.CasinoWindow.prototype.addCasino = function (_0x54ae01) {
   this.scroll.addToScrollGroup(_0x4732ae);
 };
 Luts.Object.ChangeLogWindow = function (_0x358c8e) {
-  Luts.Object.Window.call(this, _0x358c8e, "Changelog");
+  Luts.Object.Window.call(this, _0x358c8e, "更新日志");
   this.scroll = new Luts.Object.Scrollable(_0x358c8e, 10, 70, this.rWidth - 30, this.rHeight - 90);
   this.addChild(this.scroll);
   this.data = this.game.cache.getJSON("changelog");
@@ -41832,7 +41832,7 @@ Luts.Object.ChangeLogWindow.prototype.addChangelog = function (_0x30582a) {
   this.scrollIndex++;
 };
 Luts.Object.MtxWindow = function (_0x40710b) {
-  Luts.Object.Window.call(this, _0x40710b, "Buy More");
+  Luts.Object.Window.call(this, _0x40710b, "购买更多");
   this.scroll = new Luts.Object.Scrollable(_0x40710b, 10, 70, this.rWidth - 30, this.rHeight - 90);
   this.addChild(this.scroll);
   this.swapChildren(this.scroll, this.closeButton);
@@ -41843,7 +41843,7 @@ Luts.Object.MtxWindow = function (_0x40710b) {
   this.claimCups();
   Luts.Shop.fakeList = [{
     id: "1bp10",
-    name: "10 Bonus Points",
+    name: "10 奖励点数",
     cost: 10,
     callback: this.claimBPs.bind(this),
     androidCallback: function () {
@@ -41851,7 +41851,7 @@ Luts.Object.MtxWindow = function (_0x40710b) {
     }.bind(this)
   }, {
     id: "2bp50",
-    name: "55 Bonus Points",
+    name: "55 奖励点数",
     cost: 50,
     callback: this.claimBPs.bind(this),
     androidCallback: function () {
@@ -41859,7 +41859,7 @@ Luts.Object.MtxWindow = function (_0x40710b) {
     }.bind(this)
   }, {
     id: "3bp100",
-    name: "115 Bonus Points",
+    name: "115 奖励点数",
     cost: 100,
     callback: this.claimBPs.bind(this),
     androidCallback: function () {
@@ -41867,7 +41867,7 @@ Luts.Object.MtxWindow = function (_0x40710b) {
     }.bind(this)
   }, {
     id: "4bp500",
-    name: "600 Bonus Points",
+    name: "600 奖励点数",
     cost: 500,
     callback: this.claimBPs.bind(this),
     androidCallback: function () {
@@ -41875,7 +41875,7 @@ Luts.Object.MtxWindow = function (_0x40710b) {
     }.bind(this)
   }, {
     id: "5bp1000",
-    name: "1300 Bonus Points (300 FREE!)",
+    name: "1300 奖励点数 (300 免费!)",
     cost: 1000,
     callback: this.claimBPs.bind(this),
     androidCallback: function () {
@@ -41883,27 +41883,27 @@ Luts.Object.MtxWindow = function (_0x40710b) {
     }.bind(this)
   }, {
     id: "6cup2",
-    name: "8 Duel Dice Cups",
+    name: "8 决斗骰子杯",
     cost: 10,
     callback: this.claimCups.bind(this)
   }, {
     id: "7cup11",
-    name: "44 Duel Dice Cups",
+    name: "44 决斗骰子杯",
     cost: 50,
     callback: this.claimCups.bind(this)
   }, {
     id: "8cup23",
-    name: "112 Duel Dice Cups",
+    name: "112 决斗骰子杯",
     cost: 100,
     callback: this.claimCups.bind(this)
   }, {
     id: "9cup120",
-    name: "480 Duel Dice Cups",
+    name: "480 决斗骰子杯",
     cost: 500,
     callback: this.claimCups.bind(this)
   }, {
     id: "10cup250",
-    name: "1000 Duel Dice Cups (200 FREE!)",
+    name: "1000 决斗骰子杯 (200 免费!)",
     cost: 1000,
     callback: this.claimCups.bind(this)
   }];
@@ -42169,7 +42169,7 @@ Luts.Object.SlotWindow = function (_0x2f9228) {
     _0x57764f.icon.frameName = "slotItem" + _0x1caf84;
     _0x57764f.loadTexture("ingame");
     _0x57764f.setFrames("slotBack1", "slotBack0");
-    new Luts.Object.Tooltip(this.state, _0x57764f, "Click on an item and then on a slot to assign it");
+    new Luts.Object.Tooltip(this.state, _0x57764f, "点击物品，然后点击槽位进行分配。");
     this.layoutTab.addChild(_0x57764f);
     _0x4e3e2d.onUpgrade.add(function (_0x2d9961) {
       _0x2d9961.invItem.subtitle.setText(_0x2d9961.value.minus(this.usedItem[_0x2d9961.i]));
@@ -42331,7 +42331,7 @@ Luts.Object.SlotWindow.prototype.update = function () {
   }.bind(this));
 };
 Luts.Object.SlotWindow.prototype.prestigeRoulette = function () {
-  new Luts.Object.Popup(this.state, "Reset your Chips, Roulette Upgrades and Roulette back to level 1 and get " + Luts.Format.Decimal(this.state.casinos.v.dividedBy(10).ceil()) + " Slot spins (Equal to your number of casinos / 10). Are you sure to prestige your roulette?", true, function (_0x371abc) {
+  new Luts.Object.Popup(this.state, "重置您的筹码、轮盘升级和轮盘等级至 1 级，并获得 " + Luts.Format.Decimal(this.state.casinos.v.dividedBy(10).ceil()) + " 次老虎机旋转机会（相当于您的赌场数量 / 10）。确定要进行轮盘声望重置吗?", true, function (_0x371abc) {
     if (_0x371abc) {
       this.actualPrestigeRoulette();
     }
@@ -42352,33 +42352,33 @@ Luts.Object.SlotWindow.prototype.nextSpin = function () {
 };
 Luts.Object.SlotWindow.prototype.bpSpin = function () {
   if (Luts.Lock.get("slotFill").locked && this.checkLastExport()) {
-    new Luts.Object.Popup(this.state, "You exported your save recently. To prevent cheating you have to wait " + this.nextSpin() + " to be able to spin again");
+    new Luts.Object.Popup(this.state, "您最近导出了存档。为防止作弊，您必须等待 " + this.nextSpin() + " 才能再次旋转");
     return;
   } else if (this.anySpinning()) {
     this.clickSpin(true);
     return;
   } else {
     if (Luts.Upgrades.currency[6].greaterThanOrEqualTo(60)) {
-      new Luts.Object.Popup(this.state, "Do you really want to spend BP to spin?", true, function (_0x1bd05d) {
+      new Luts.Object.Popup(this.state, "您确定要花费奖励点数进行旋转吗?", true, function (_0x1bd05d) {
         if (_0x1bd05d) {
           this.clickSpin(true);
           Luts.Upgrades.changeCurrency(6, -60);
         }
       }.bind(this));
     } else if (Luts.Ad.enabled) {
-      new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Do you want to watch an Ad to get 5 BPs?", true, function (_0x142e76) {
+      new Luts.Object.Popup(this.state, "您的奖励点数不足。您想观看广告以获得 5 个奖励点数吗?", true, function (_0x142e76) {
         if (_0x142e76) {
           this.state.shopWindow.requestAdForBp();
         }
       }.bind(this));
     } else if (Luts.mtxEnabled && Luts.Connect.kong) {
-      new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Do you want to get more?", true, function (_0x200a9a) {
+      new Luts.Object.Popup(this.state, "您的奖励点数不足。您想获取更多吗?", true, function (_0x200a9a) {
         if (_0x200a9a) {
           this.state.mtxClicked();
         }
       }.bind(this));
     } else {
-      new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Check in daily and unlock achievements to get more BP");
+      new Luts.Object.Popup(this.state, "您的奖励点数不足。请每日签到和解锁成就来获取更多奖励点数");
     }
     return;
   }
@@ -42393,7 +42393,7 @@ Luts.Object.SlotWindow.prototype.anySpinning = function () {
 };
 Luts.Object.SlotWindow.prototype.clickSpin = function (_0x1d16ff) {
   if (Luts.Lock.get("slotFill").locked && this.checkLastExport()) {
-    new Luts.Object.Popup(this.state, "You exported your save recently. To prevent cheating you have to wait " + this.nextSpin() + " to be able to spin again");
+    new Luts.Object.Popup(this.state, "您最近导出了存档。为防止作弊，您必须等待 " + this.nextSpin() + " 才能再次旋转");
     return;
   }
   if (this.anySpinning()) {
@@ -42536,42 +42536,42 @@ Luts.Object.SlotWindow.prototype.getReward = function (_0x5bc054) {
         Luts.Upgrades.changeCurrency(8, _0xa221e4 * 1);
       };
       _0x53bc51 = 1;
-      _0x3c4f25 = "+% Diamond$!";
+      _0x3c4f25 = "+% 钻石!";
       break;
     case 1:
       _0x7c12ca = function (_0x4b6124) {
         Luts.Upgrades.changeCurrency(8, _0x4b6124 * 5);
       };
       _0x53bc51 = 5;
-      _0x3c4f25 = "+% Diamonds!";
+      _0x3c4f25 = "+% 钻石!";
       break;
     case 2:
       _0x7c12ca = function (_0x4eb8af) {
         Luts.Value.get("comboMulti").changeMultiplier("slot", 1, _0x4eb8af * 2, 1);
       };
       _0x53bc51 = 2;
-      _0x3c4f25 = "Combomultiplier +x%!";
+      _0x3c4f25 = "连击乘数 +x%!";
       break;
     case 3:
       _0x7c12ca = function (_0x1eafd2) {
         Luts.Upgrades.changeCurrency(8, _0x1eafd2 * 25);
       };
       _0x53bc51 = 25;
-      _0x3c4f25 = "+% Diamonds!";
+      _0x3c4f25 = "+% 钻石!";
       break;
     case 4:
       _0x7c12ca = function (_0x8f3bb9) {
         Luts.Value.get("chipMulti").changeMultiplier("slot", 1, _0x8f3bb9 * 2, 1);
       };
       _0x53bc51 = 2;
-      _0x3c4f25 = "Chipmulti +x%!";
+      _0x3c4f25 = "筹码乘数 +x%!";
       break;
     case 5:
       _0x7c12ca = function (_0x220b16) {
         Luts.Upgrades.changeCurrency(8, _0x220b16 * 125);
       };
       _0x53bc51 = 125;
-      _0x3c4f25 = "+% Diamonds!";
+      _0x3c4f25 = "+% 钻石!";
       break;
     case 6:
       _0x7c12ca = function (_0x21535e) {
@@ -42579,14 +42579,14 @@ Luts.Object.SlotWindow.prototype.getReward = function (_0x5bc054) {
         Luts.Lock.unlock("diamondCards");
       };
       _0x53bc51 = 1;
-      _0x3c4f25 = "+% DIAMOND CARD POINT§!!";
+      _0x3c4f25 = "+% 钻石卡点数§!!";
       break;
     case 7:
       _0x7c12ca = function (_0x39f0d2) {
         Luts.Upgrades.changeCurrency(11, Luts.Value.get("cupPointMulti").modValue().times(_0x39f0d2));
       };
       _0x53bc51 = Luts.Value.get("cupPointMulti").modValue();
-      _0x3c4f25 = "+% CUP POINT§!!!!!!1";
+      _0x3c4f25 = "+% 奖杯点数§!!!!!!1";
   }
   return {
     cb: _0x7c12ca,
@@ -42601,7 +42601,7 @@ Luts.Object.DiceWindow = function (_0x3b9f32) {
   this.cupsTab = this.addTab("cups", "奖杯");
   this.collectionTab = this.addTab("collection", "收集");
   this.tabs.show(this.inventoryTab);
-  this.diceCupUpgrade = Luts.Upgrades.add("diceCup", "骰盅", "", 10, 0, 5, 1, -1, 0, null, 11);
+  this.diceCupUpgrade = Luts.Upgrades.add("diceCup", "骰盅", "增加骰盅的数量", 10, 0, 5, 1, -1, 0, null, 11);
   this.diceCupUpgrade.priceIncreaseMethod = 1;
   this.cupAnimCounter = 0;
   this.currentSet = this.game.add.image(30, 150);
@@ -42633,11 +42633,11 @@ Luts.Object.DiceWindow = function (_0x3b9f32) {
   this.collectionTab.addChild(this.collectionScroll);
   this.updateCollection();
   this.collectionTab.onShow.add(this.updateCollection.bind(this));
-  this.mergeButton = new Luts.Object.Button(_0x3b9f32, 80, 240, "Merge all", "", this.mergeAll.bind(this));
+  this.mergeButton = new Luts.Object.Button(_0x3b9f32, 80, 240, "全部合成", "", this.mergeAll.bind(this));
   this.inventoryTab.addChild(this.mergeButton);
-  new Luts.Object.Tooltip(_0x3b9f32, this.mergeButton, "Every 2 Dices in your inventory of the same type and same level will be merged to the next level. If 2 D100 get merged, the resulting Dice will become a level 1 Dice again, with power multiplied by 10. This can lead to a weaker dice. (D100 -> D6 * 10 = 60)");
-  this.sortBy = Luts.Store.getItem("sortBy", "Power");
-  this.sortButton = new Luts.Object.Button(_0x3b9f32, 555, 240, "Sort by", this.sortBy, this.changeSort.bind(this));
+  new Luts.Object.Tooltip(_0x3b9f32, this.mergeButton, "背包中每 2 个相同类型和等级的骰子将合成到下一个等级。如果 2 个 D100 合成，结果骰子将变回 1 级骰子，但威力乘以 10。这可能会导致骰子威力变弱。(D100 -> D6 * 10 = 60)");
+  this.sortBy = Luts.Store.getItem("sortBy", "威力");
+  this.sortButton = new Luts.Object.Button(_0x3b9f32, 555, 240, "排序方式", this.sortBy, this.changeSort.bind(this));
   this.inventoryTab.addChild(this.sortButton);
   this.cupShine1 = this.game.add.image(this.rWidth / 2 - 200, 200, "ingame", "rarity_rare");
   this.cupShine1.anchor.set(0.5);
@@ -42708,7 +42708,7 @@ Luts.Object.DiceWindow = function (_0x3b9f32) {
   this.cupCostText = new Luts.Object.Text(_0x3b9f32, 50, 345, "text", "奖杯点数：", 16, "#000000");
   this.cupCostText.strokeThickness = 0;
   this.cupsTab.addChild(this.cupCostText);
-  this.chancesText = new Luts.Object.Text(_0x3b9f32, 250, 345, "text", "Chances: ", 16, "#000000");
+  this.chancesText = new Luts.Object.Text(_0x3b9f32, 250, 345, "text", "几率：", 16, "#000000");
   this.chancesText.strokeThickness = 0;
   this.cupsTab.addChild(this.chancesText);
   var _0x26eb52 = "";
@@ -42716,16 +42716,16 @@ Luts.Object.DiceWindow = function (_0x3b9f32) {
     _0x26eb52 += _0x38423f.name + ": " + Luts.Format.Percent(Luts.Object.DuelHandler.rarityChance(_0x38423f)) + "; ";
   }.bind(this));
   this.chancesText.setText(_0x26eb52);
-  this.buyCupButton = new Luts.Object.Button(_0x3b9f32, 100, 400, "Buy Cup", "100", this.buyCup.bind(this));
+  this.buyCupButton = new Luts.Object.Button(_0x3b9f32, 100, 400, "购买奖杯", "100", this.buyCup.bind(this));
   this.cupsTab.addChild(this.buyCupButton);
   Luts.Events.onCurrencyChanged[11].add(this.updateButton.bind(this));
   this.updateButton();
-  this.mtxButton = new Luts.Object.Button(_0x3b9f32, 450, 400, "Get More", "", function () {
+  this.mtxButton = new Luts.Object.Button(_0x3b9f32, 450, 400, "获取更多", "", function () {
     _0x3b9f32.mtxClicked();
   }.bind(this));
   this.cupsTab.addChild(this.mtxButton);
   this.mtxButton.visible = Luts.mtxEnabled && (Luts.Connect.kong || Luts.Connect.store);
-  this.openCupButton = new Luts.Object.Button(_0x3b9f32, this.rWidth / 2, 400, "Open Cup", Luts.Format.Decimal(Luts.Upgrades.currency[10]), this.openCup.bind(this));
+  this.openCupButton = new Luts.Object.Button(_0x3b9f32, this.rWidth / 2, 400, "开启奖杯", Luts.Format.Decimal(Luts.Upgrades.currency[10]), this.openCup.bind(this));
   this.cupsTab.addChild(this.openCupButton);
   this.openCupButton.setActive(Luts.Upgrades.currency[10].greaterThan(0), true);
   Luts.Events.onCurrencyChanged[10].add(function (_0x382719) {
@@ -42819,9 +42819,9 @@ Luts.Object.DiceWindow.prototype.openCup = function () {
     this.cupDice1.icon.tooltip.setText(Luts.Object.DuelHandler.getDesc(_0x13dd21[0], 1));
     this.cupDice2.icon.tooltip.setText(Luts.Object.DuelHandler.getDesc(_0x13dd21[1], 1));
     this.cupDice3.icon.tooltip.setText(Luts.Object.DuelHandler.getDesc(_0x13dd21[2], 1));
-    this.cupText1.setText(_0x13dd21[0].name + "\nPower: " + _0x13dd21[0].power + "\nRarity: " + _0x13dd21[0].rarity);
-    this.cupText2.setText(_0x13dd21[1].name + "\nPower: " + _0x13dd21[1].power + "\nRarity: " + _0x13dd21[1].rarity);
-    this.cupText3.setText(_0x13dd21[2].name + "\nPower: " + _0x13dd21[2].power + "\nRarity: " + _0x13dd21[2].rarity);
+    this.cupText1.setText(_0x13dd21[0].name + "\n威力: " + _0x13dd21[0].power + "\n稀有度: " + _0x13dd21[0].rarity);
+    this.cupText2.setText(_0x13dd21[1].name + "\n威力: " + _0x13dd21[1].power + "\n稀有度: " + _0x13dd21[1].rarity);
+    this.cupText3.setText(_0x13dd21[2].name + "\n威力: " + _0x13dd21[2].power + "\n稀有度: " + _0x13dd21[2].rarity);
     this.cupDice1.frameName = _0x13dd21[0].d === 6 ? "d6_6" : "d" + _0x13dd21[0].d;
     this.cupDice2.frameName = _0x13dd21[1].d === 6 ? "d6_6" : "d" + _0x13dd21[1].d;
     this.cupDice3.frameName = _0x13dd21[2].d === 6 ? "d6_6" : "d" + _0x13dd21[2].d;
@@ -42928,18 +42928,18 @@ Luts.Object.DiceWindow.prototype.updateInventory = function () {
     var _0x4aeb3d = Luts.Object.DuelHandler.realPower(_0x5b9323, _0x302bac.l);
     var _0x1acfe8 = (_0x4aeb3d - _0x3a3210) * 0.000001;
     switch (this.sortBy) {
-      case "Nothing":
+      case "无":
       default:
         return 0;
-      case "Power":
+      case "威力":
         return _0x4aeb3d - _0x3a3210;
-      case "Level":
+      case "等级":
         return _0x302bac.l - _0x386f5e.l + _0x1acfe8;
-      case "Rarity":
+      case "稀有度":
         return Luts.Object.DuelHandler.rarityToNumber(_0x5b9323.rarity) - Luts.Object.DuelHandler.rarityToNumber(_0x2d915d.rarity) + _0x1acfe8;
-      case "Dice Type":
+      case "骰子类型":
         return Luts.Object.DuelHandler.levelToDiceType(_0x5b9323.d, _0x302bac.l) - Luts.Object.DuelHandler.levelToDiceType(_0x2d915d.d, _0x386f5e.l) + _0x1acfe8;
-      case "Name":
+      case "名称":
         if (_0x2d915d.name < _0x5b9323.name) {
           return -1;
         } else if (_0x2d915d.name > _0x5b9323.name) {
