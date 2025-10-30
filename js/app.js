@@ -35904,69 +35904,69 @@ Luts.State.Game.prototype.create = function () {
   Luts.Sound.play("music", 0.3, true);
   Luts.CardRules.init(this);
   Luts.Save.init();
-  this.enableScreenShake = new Luts.Setting("screenShake", true, "Enable Screenshake");
-  this.autoAscend = new Luts.Setting("autoAscend", false, "Auto Ascend");
-  this.focusOnCard = new Luts.Setting("focusOnCard", true, "Focus on Card", "Automatically set the focus to card on prestige");
-  this.autoSpin = new Luts.Setting("autoSpin", false, "Auto Spin", "Spin the roulette automatically if you can afford it");
-  this.autoRouletteUpgrade = new Luts.Setting("autoRouletteUpgrade", false, "Auto Roulette Upgrade", "Upgrade the roulette automatically if you can afford it");
-  this.autoRouletteFocus = new Luts.Setting("autoRouletteFocus", false, "Auto Roulette Focus", "Focus the roulette automatically if you can afford it");
-  this.autoDraw = new Luts.Setting("autoDraw", false, "Auto Draw Card", "Draw cards automatically (Change the order under cards)");
-  this.autoGild = new Luts.Setting("autoGild", false, "Auto Gild Card", "Gild cards automatically (Change the order under cards)");
-  this.autoConvert = new Luts.Setting("autoConvert", false, "Auto Convert", "Automatically convert when having 52 cards");
-  this.autoUpgrade = new Luts.Setting("autoUpgrade", false, "Auto Upgrade", "Automatically try to upgrade a dice or combo every few seconds");
-  this.autoSlotSpin = new Luts.Setting("autoSlotSpin", false, "Auto Slot Spin", "Automatically spin the slot machine if you can afford it");
-  this.autoRoulettePrestige = new Luts.Setting("autoRoulettePrestige", false, "Auto Roulette Prestige", "Automatically prestige the roulette");
-  this.autoInvest = new Luts.Setting("autoInvest", false, "Auto Invest", "Automatically invest when you have 52 golden cards");
-  this.slotFill = new Luts.Setting("slotFill", false, "Slot Fill", "Selecting a slot item fills the layout with it");
-  this.autoSpendLuck = new Luts.Setting("autoSpendLuck", false, "Auto Spend Luck", "After each convert luck upgrades will be bought automatically in a chosen order");
+  this.enableScreenShake = new Luts.Setting("screenShake", true, "启用屏幕震动");
+  this.autoAscend = new Luts.Setting("autoAscend", false, "自动飞升");
+  this.focusOnCard = new Luts.Setting("focusOnCard", true, "聚焦卡牌", "飞升时自动将焦点设置到卡牌");
+  this.autoSpin = new Luts.Setting("autoSpin", false, "自动转动", "如果负担得起，自动转动转盘");
+  this.autoRouletteUpgrade = new Luts.Setting("autoRouletteUpgrade", false, "自动转盘升级", "如果负担得起，自动升级转盘");
+  this.autoRouletteFocus = new Luts.Setting("autoRouletteFocus", false, "自动转盘聚焦", "如果负担得起，自动聚焦转盘");
+  this.autoDraw = new Luts.Setting("autoDraw", false, "自动抽牌", "自动抽卡（在卡牌下更改顺序）");
+  this.autoGild = new Luts.Setting("autoGild", false, "自动镀金卡牌", "自动镀金卡牌（在卡牌下更改顺序）");
+  this.autoConvert = new Luts.Setting("autoConvert", false, "自动兑换", "拥有 52 张卡牌时自动兑换");
+  this.autoUpgrade = new Luts.Setting("autoUpgrade", false, "自动升级", "每隔几秒自动尝试升级一个骰子或连击");
+  this.autoSlotSpin = new Luts.Setting("autoSlotSpin", false, "自动老虎机转动", "如果负担得起，自动转动老虎机");
+  this.autoRoulettePrestige = new Luts.Setting("autoRoulettePrestige", false, "自动转盘飞升", "自动飞升转盘");
+  this.autoInvest = new Luts.Setting("autoInvest", false, "自动投资", "拥有 52 张镀金卡牌时自动投资");
+  this.slotFill = new Luts.Setting("slotFill", false, "老虎机填充", "选择一个老虎机物品会用它填充布局");
+  this.autoSpendLuck = new Luts.Setting("autoSpendLuck", false, "自动花费幸运点", "每次兑换后，将按选定的顺序自动购买幸运升级");
   Luts.Store.setItem("version", Luts.version);
   this.fbMulti = 1;
   this.kongMulti = 1;
   this.lastAsyncUpdateTime = new Date();
-  this.rollInterval = new Luts.Value("rollInterval", 5, "Roll Interval");
+  this.rollInterval = new Luts.Value("rollInterval", 5, "投掷间隔");
   this.rollCounter = this.rollInterval.modValue().toNumber();
-  this.rollAnim = new Luts.Value("rollAnim", 2, "Roll Animation Duration");
-  this.rouletteAnim = new Luts.Value("rouletteAnim", 3, "Roulette Animation Duration");
+  this.rollAnim = new Luts.Value("rollAnim", 2, "投掷动画时长");
+  this.rouletteAnim = new Luts.Value("rouletteAnim", 3, "转盘动画时长");
   this.animPlaying = false;
   this.dices = [];
   this.lastScore = 0;
-  this.totalScore = new Luts.Value("totalScore", 0, "Total Score", "prestige2");
-  this.prestigeScore = new Luts.Value("prestigeScore", 0, "Current Prestige Score", "prestige");
-  this.totalPrestige = new Luts.Value("totalPrestige", 1, "Total Prestige Multiplier");
-  this.totalDecks = new Luts.Value("totalDecks", 0, "Total Decks");
+  this.totalScore = new Luts.Value("totalScore", 0, "总分数", "prestige2");
+  this.prestigeScore = new Luts.Value("prestigeScore", 0, "当前飞升分数", "prestige");
+  this.totalPrestige = new Luts.Value("totalPrestige", 1, "总飞升倍率");
+  this.totalDecks = new Luts.Value("totalDecks", 0, "总牌堆");
   this.unlockedCards = Luts.Store.getItem("unlockedCards", 0);
   this.goldenCards = Luts.Store.getItem("goldenCards", 0);
-  this.casinos = new Luts.Value("casinos", 0, "Casinos");
-  this.luckMulti = new Luts.Value("luckMulti", 1, "Luck Multiplier");
+  this.casinos = new Luts.Value("casinos", 0, "赌场");
+  this.luckMulti = new Luts.Value("luckMulti", 1, "幸运倍率");
   this.prestiging = false;
-  this.prestigedNum = new Luts.Value("prestigeNum", 0, "Times Prestiged");
-  this.rouletteSpins = new Luts.Value("rouletteSpins", 0, "Roulette Spins");
+  this.prestigedNum = new Luts.Value("prestigeNum", 0, "飞升次数");
+  this.rouletteSpins = new Luts.Value("rouletteSpins", 0, "转盘转动次数");
   this.rouletteLevel = new Luts.Value("rouletteLevel", 0, null, "prestige");
-  this.chipMulti = new Luts.Value("chipMulti", 1, "Chip Multi");
+  this.chipMulti = new Luts.Value("chipMulti", 1, "筹码倍率");
   this.focusCharge = new Luts.Value("focusCharge", 0, null, "prestige");
   this.prestigeMM = new Luts.Value("prestigeMM", 1);
-  this.interest = new Luts.Value("interest", 0, "Interest per second");
-  this.luckKept = new Luts.Value("luckKept", 0, "Luck kept after investment");
-  this.skillPointMulti = new Luts.Value("skillPointMulti", 1, "Skill Points Multi");
-  this.autoUpgradeInterval = new Luts.Value("autoUpgradeInterval", 10, "Auto Upgrade Interval");
+  this.interest = new Luts.Value("interest", 0, "每秒利息");
+  this.luckKept = new Luts.Value("luckKept", 0, "投资后保留的幸运点");
+  this.skillPointMulti = new Luts.Value("skillPointMulti", 1, "技能点倍率");
+  this.autoUpgradeInterval = new Luts.Value("autoUpgradeInterval", 10, "自动升级间隔");
   this.cupPointMulti = new Luts.Value("cupPointMulti", 1);
   this.autoUpgradeCounter = -10;
   this.autoSlotSpinInterval = new Luts.Value("autoSlotSpinInterval", 1);
   this.slotSpinMulti = new Luts.Value("slotSpinMulti", 1);
   this.prestigeGain = new Luts.Value("prestigeGain", 0);
-  this.rolled1 = new Luts.Value("rolled1", 0, "Total Rolled 1");
-  this.rolled2 = new Luts.Value("rolled2", 0, "Total Rolled 2");
-  this.rolled3 = new Luts.Value("rolled3", 0, "Total Rolled 3");
-  this.rolled4 = new Luts.Value("rolled4", 0, "Total Rolled 4");
-  this.rolled5 = new Luts.Value("rolled5", 0, "Total Rolled 5");
-  this.rolled6 = new Luts.Value("rolled6", 0, "Total Rolled 6");
+  this.rolled1 = new Luts.Value("rolled1", 0, "总投掷点数 1");
+  this.rolled2 = new Luts.Value("rolled2", 0, "总投掷点数 2");
+  this.rolled3 = new Luts.Value("rolled3", 0, "总投掷点数 3");
+  this.rolled4 = new Luts.Value("rolled4", 0, "总投掷点数 4");
+  this.rolled5 = new Luts.Value("rolled5", 0, "总投掷点数 5");
+  this.rolled6 = new Luts.Value("rolled6", 0, "总投掷点数 6");
   this.multiDicesUnlocked = new Luts.Value("multiDices", 1, null, "prestige");
   this.goldReset = Luts.Store.getItem("goldReset", true);
   this.interestCounter = 0;
   this.interestInterval = 10;
-  this.bonusUpgrades = [Luts.Upgrades.add("bonusComboMulti", "Combo Multi", "Increases your combo multiplier by 100%", 20, 1, 1, 1, null, 0, null, 6), Luts.Upgrades.add("bonusCardMulti", "Card Progression Multi", "Increases your card progression by 100%", 50, 1, 1, 1, null, 0, null, 6), Luts.Upgrades.add("bonusChipMulti", "Chip Multi", "Increases your chip multi by 100%", 40, 1, 1, 1, null, 0, null, 6), Luts.Upgrades.add("bonusSkillMulti", "Skill Point Multi", "Increases your skill point multi by 100%", 1000, 1, 1, 1, null, 0, null, 6), Luts.Upgrades.add("bonusPrestige", "Prestige without reset", "Increases your prestige without reseting your upgrades (Once)", 5, 1, 1, 1, null, 0, null, 6), Luts.Upgrades.add("bonusConvert", "Convert without reset", "Increases your luck and golden cards without reseting your prestige. YOU WILL AUTOMATICALLY PRESTIGE BUT KEEP YOUR MULTIPLIER (Once)", 50, 1, 1, 1, null, 0, null, 6)];
+  this.bonusUpgrades = [Luts.Upgrades.add("bonusComboMulti", "连击倍率", "增加你的连击倍率 100%", 20, 1, 1, 1, null, 0, null, 6), Luts.Upgrades.add("bonusCardMulti", "卡牌进度倍率", "增加你的卡牌进度 100%", 50, 1, 1, 1, null, 0, null, 6), Luts.Upgrades.add("bonusChipMulti", "筹码倍率", "增加你的筹码倍率 100%", 40, 1, 1, 1, null, 0, null, 6), Luts.Upgrades.add("bonusSkillMulti", "技能点倍率", "增加你的技能点倍率 100%", 1000, 1, 1, 1, null, 0, null, 6), Luts.Upgrades.add("bonusPrestige", "不重置的飞升", "增加你的飞升倍率而不重置你的升级 (一次)", 5, 1, 1, 1, null, 0, null, 6), Luts.Upgrades.add("bonusConvert", "不重置的兑换", "增加你的幸运点和镀金卡牌而不重置你的飞升。你将自动飞升但保留你的倍率 (一次)", 50, 1, 1, 1, null, 0, null, 6)];
   Luts.Upgrades.get("bonusPrestige").onUpgrade.add(function () {
-    new Luts.Object.Popup(this, "You got " + Luts.Format.Percent(this.getPrestigeMulti()) + " Prestige Multi!");
+    new Luts.Object.Popup(this, "你获得了 " + Luts.Format.Percent(this.getPrestigeMulti()) + " 飞升倍率!");
     this.totalPrestige.set(this.totalPrestige.v.add(this.getPrestigeMulti()));
     Luts.Value.get("main0_multi").setMultiplier("prestigeMulti", this.totalPrestige.v, null);
     Luts.Value.get("main1_multi").setMultiplier("prestigeMulti", this.totalPrestige.v, null);
@@ -35985,8 +35985,8 @@ Luts.State.Game.prototype.create = function () {
     Luts.Upgrades.changeCurrency("LuckPoints", this.totalPrestige.v.times(this.luckMulti.modValue()));
     Luts.Events.onAfterPrestige2.dispatch();
   }, this);
-  this.luckUpgrades = [Luts.Upgrades.add("rollCurve", "Roll Curve", "Increases the probability to roll higher numbers", new Decimal("1e+11"), 1, 15, 0.1, null, 0, null, 3), Luts.Upgrades.add("rerollChance", "Reroll Chance", "Chance to reroll automatically after a roll", new Decimal("1e+9"), 0, 2.15, 0.01, 100, 0, null, 3), Luts.Upgrades.add("comboIncrease", "Combo Increase", "Increases the combo multiplier everytime you roll a combo", new Decimal("5e+9"), 0, 1.75, 0.01, null, 0, null, 3), Luts.Upgrades.add("prestigeMultiMulti", "Prestige Multi Multi", "Multiplies the prestige multiplier", new Decimal("5e+8"), 1, 10, 1, null, 0, null, 3), Luts.Upgrades.add("slowButStrong", "Slow but Strong", "Roll interval is x times slower, all dice multiplier times x", new Decimal("5e+8"), 1, 4, 1, null, 0, null, 3), Luts.Upgrades.add("focusChance", "Focus Chance", "Chance to hit your roulette focus without spending chips", new Decimal("5e+10"), 0, 25, 0.01, 100, 0, null, 3)];
-  this.skillUpgrades = [Luts.Upgrades.add("rouletteUpgradeMulti", "Roulette Level Multi", "Increases the Roulette Level more when you hit the upgrade", 1, 1, 2, 1, 30, 0, null, 5), Luts.Upgrades.add("multiPerRoll", "Dice Multi per roll", "Increases the Multiplier of a dice by the points it rolls", 1, 0, 0, 1, null, 0, null, 5), Luts.Upgrades.add("cardProgressPerSpin", "Card progress per spin", "Increases the Card progression multi each time you spin the roulette", 1, 0, 0, 0.1, null, 0, null, 5), Luts.Upgrades.add("chipPerCard", "Chip multi per card", "Increases the Chip multi for each card you have", 1, 0, 0, 1, null, 0, null, 5), Luts.Upgrades.add("luckPerGold", "Luck multi per golden card", "Increases the Luck multi for each golden card you have", 1, 0, 0, 0.1, null, 0, null, 5), Luts.Upgrades.add("gildingGain", "Gildings per convert", "Increases the cards you can gild per convert", 2, 1, 2, 1, 51, 0, null, 5)];
+  this.luckUpgrades = [Luts.Upgrades.add("rollCurve", "投掷曲线", "增加投掷出更高点数的概率", new Decimal("1e+11"), 1, 15, 0.1, null, 0, null, 3), Luts.Upgrades.add("rerollChance", "重掷几率", "投掷后自动重掷的几率", new Decimal("1e+9"), 0, 2.15, 0.01, 100, 0, null, 3), Luts.Upgrades.add("comboIncrease", "连击增加", "每次投掷出连击时增加连击倍率", new Decimal("5e+9"), 0, 1.75, 0.01, null, 0, null, 3), Luts.Upgrades.add("prestigeMultiMulti", "飞升倍率倍率", "乘以飞升倍率", new Decimal("5e+8"), 1, 10, 1, null, 0, null, 3), Luts.Upgrades.add("slowButStrong", "慢但强", "投掷间隔慢 x 倍，所有骰子倍率乘以 x", new Decimal("5e+8"), 1, 4, 1, null, 0, null, 3), Luts.Upgrades.add("focusChance", "聚焦几率", "在不花费筹码的情况下击中转盘焦点的几率", new Decimal("5e+10"), 0, 25, 0.01, 100, 0, null, 3)];
+  this.skillUpgrades = [Luts.Upgrades.add("rouletteUpgradeMulti", "转盘等级倍率", "当你击中升级时，转盘等级增加更多", 1, 1, 2, 1, 30, 0, null, 5), Luts.Upgrades.add("multiPerRoll", "每次投掷的骰子倍率", "通过投掷的点数增加骰子的倍率", 1, 0, 0, 1, null, 0, null, 5), Luts.Upgrades.add("cardProgressPerSpin", "每次转动的卡牌进度", "每次转动转盘时增加卡牌进度倍率", 1, 0, 0, 0.1, null, 0, null, 5), Luts.Upgrades.add("chipPerCard", "每张卡牌的筹码倍率", "增加你拥有的每张卡牌的筹码倍率", 1, 0, 0, 1, null, 0, null, 5), Luts.Upgrades.add("luckPerGold", "每张镀金卡牌的幸运倍率", "增加你拥有的每张镀金卡牌的幸运倍率", 1, 0, 0, 0.1, null, 0, null, 5), Luts.Upgrades.add("gildingGain", "每次兑换的镀金卡牌数", "增加你每次兑换可以镀金的卡牌数", 2, 1, 2, 1, 51, 0, null, 5)];
   this.skillUpgrades.forEach(function (_0x5f13c5) {
     _0x5f13c5.priceIncreaseMethod = 1;
   });
@@ -36009,9 +36009,9 @@ Luts.State.Game.prototype.create = function () {
     this.cardButton.setActive(false, true);
     this.cardButton.setActive(true, true);
   }, this);
-  this.cardProgressMulti = new Luts.Value("cardProgressMulti", 1, "Card progress per Ascension");
-  this.ascensionMulti = new Luts.Value("ascensionMulti", 100, "Multiplier per Ascension");
-  this.comboMulti = new Luts.Value("comboMulti", 1, "All Combo Multiplier");
+  this.cardProgressMulti = new Luts.Value("cardProgressMulti", 1, "每次飞升的卡牌进度");
+  this.ascensionMulti = new Luts.Value("ascensionMulti", 100, "每次飞升的倍率");
+  this.comboMulti = new Luts.Value("comboMulti", 1, "所有连击倍率");
   Luts.Events.onCurrencyChanged[1].add(function () {
     this.cardButton.subtitle.setText(Luts.Format.Decimal(Luts.Upgrades.currency[1]));
   }, this);
@@ -36218,7 +36218,7 @@ Luts.State.Game.prototype.create = function () {
   this.resize(1, 1);
   Luts.Events.onPrestige.dispatch();
   if (navigator.userAgent.toLowerCase().indexOf("firefox") > -1) {
-    new Luts.Object.Popup(this, "Firefox is not fully supported and will maybe run slow. Consider using Chrome to play.");
+    new Luts.Object.Popup(this, "Firefox 兼容性不完整，运行可能会变慢。请考虑使用 Chrome 进行游戏。");
   }
   if (screen.orientation && screen.orientation.lock) {
     screen.orientation.lock("landscape").catch(function (_0x5d2c11) {});
@@ -36231,7 +36231,7 @@ Luts.State.Game.prototype.create = function () {
   }
 };
 Luts.State.Game.prototype.sl = function () {
-  new Luts.Object.Popup(this, "The game is not available on this site. Please play on Kongregate", false, function () {
+  new Luts.Object.Popup(this, "该游戏原版在 Kongregate 上，本站为汉化，部分功能可能不可用", false, function () {
     this.sl();
     window.open("https://www.kongregate.com/games/Luts91/idle-dice", Luts.cordova ? "_system" : null);
   }.bind(this));
@@ -40156,7 +40156,7 @@ Luts.Object.CreditsWindow.prototype.addCredit = function (_0x47f6bc, _0x16b451, 
   return _0x337c07;
 };
 Luts.Object.InfoWindow = function (_0x54673f) {
-  Luts.Object.Window.call(this, _0x54673f, "Statistics");
+  Luts.Object.Window.call(this, _0x54673f, "统计");
   this.scroll = new Luts.Object.Scrollable(_0x54673f, 10, 70, this.rWidth - 30, this.rHeight - 90);
   this.addChild(this.scroll);
   this.swapChildren(this.scroll, this.closeButton);
@@ -40164,7 +40164,7 @@ Luts.Object.InfoWindow = function (_0x54673f) {
   this.texts = [];
   this.updateCounter = 0;
   this.updateInterval = 30;
-  this.gameVersion = this.addStatistic("Game Version", Luts.version);
+  this.gameVersion = this.addStatistic("游戏版本", Luts.version);
   this.addStatistic("FPS", "", function () {
     return this.game.time.fps;
   }.bind(this));
@@ -40545,10 +40545,10 @@ Luts.Object.CardsWindow = function (_0x47e1b9) {
   } else {
     this.autoGildOrder = JSON.parse(this.autoGildOrder);
   }
-  this.mostPref = new Luts.Object.Text(_0x47e1b9, 30, 140, "text", "Most Preferred", 20, "#000000");
+  this.mostPref = new Luts.Object.Text(_0x47e1b9, 30, 140, "text", "最优先", 20, "#000000");
   this.mostPref.strokeThickness = 0;
   this.autoDrawTab.addChild(this.mostPref);
-  this.leastPref = new Luts.Object.Text(_0x47e1b9, 480, 140, "text", "Least Preferred", 20, "#000000");
+  this.leastPref = new Luts.Object.Text(_0x47e1b9, 480, 140, "text", "最低优先", 20, "#000000");
   this.leastPref.strokeThickness = 0;
   this.autoDrawTab.addChild(this.leastPref);
   this.autoDrawCards = [];
@@ -40572,7 +40572,7 @@ Luts.Object.CardsWindow = function (_0x47e1b9) {
   this.autoDraw();
   this.state.autoGild.onChanged.add(this.autoGild, this);
   Luts.Events.onAfterPrestige2.add(this.autoGild, this);
-  this.autoDrawText = new Luts.Object.Text(_0x47e1b9, 20, 395, "text", "Auto Draw:", 20, "#000000");
+  this.autoDrawText = new Luts.Object.Text(_0x47e1b9, 20, 395, "text", "自动抽卡:", 20, "#000000");
   this.autoDrawText.strokeThickness = 0;
   this.autoDrawTab.addChild(this.autoDrawText);
   var _0x54eff3 = Luts.getSetting("autoDraw");
@@ -40589,7 +40589,7 @@ Luts.Object.CardsWindow = function (_0x47e1b9) {
   }.bind(this.autoDrawSetting));
   this.autoDrawSetting.setLock("autoDraw");
   _0x54eff3.onChanged.dispatch(_0x54eff3);
-  this.autoGildText = new Luts.Object.Text(_0x47e1b9, 220, 395, "text", "Auto Gild:", 20, "#000000");
+  this.autoGildText = new Luts.Object.Text(_0x47e1b9, 220, 395, "text", "自动镀金:", 20, "#000000");
   this.autoGildText.strokeThickness = 0;
   this.autoDrawTab.addChild(this.autoGildText);
   var _0x42691e = Luts.getSetting("autoGild");
@@ -40606,7 +40606,7 @@ Luts.Object.CardsWindow = function (_0x47e1b9) {
   }.bind(this.autoGildSetting));
   this.autoGildSetting.setLock("autoGild");
   _0x42691e.onChanged.dispatch(_0x42691e);
-  this.autoConvertText = new Luts.Object.Text(_0x47e1b9, 20, 395, "text", "Auto Convert:", 20, "#000000");
+  this.autoConvertText = new Luts.Object.Text(_0x47e1b9, 20, 395, "text", "自动转换:", 20, "#000000");
   this.autoConvertText.strokeThickness = 0;
   this.deckTab.addChild(this.autoConvertText);
   var _0x306d33 = Luts.getSetting("autoConvert");
@@ -40629,10 +40629,10 @@ Luts.Object.CardsWindow = function (_0x47e1b9) {
   } else {
     this.autoLuckOrder = JSON.parse(this.autoLuckOrder);
   }
-  this.mostPref = new Luts.Object.Text(_0x47e1b9, 30, 140, "text", "Most Preferred", 20, "#000000");
+  this.mostPref = new Luts.Object.Text(_0x47e1b9, 30, 140, "text", "最优先", 20, "#000000");
   this.mostPref.strokeThickness = 0;
   this.autoLuckTab.addChild(this.mostPref);
-  this.leastPref = new Luts.Object.Text(_0x47e1b9, 30, 400, "text", "Least Preferred", 20, "#000000");
+  this.leastPref = new Luts.Object.Text(_0x47e1b9, 30, 400, "text", "最低优先", 20, "#000000");
   this.leastPref.strokeThickness = 0;
   this.autoLuckTab.addChild(this.leastPref);
   this.autoLuckTexts = [];
@@ -40641,7 +40641,7 @@ Luts.Object.CardsWindow = function (_0x47e1b9) {
     this.autoLuckTab.addChild(_0x5ba7c6);
     this.autoLuckTexts.push(_0x5ba7c6);
   }.bind(this));
-  this.autoLuckText = new Luts.Object.Text(_0x47e1b9, 220, 395, "text", "Enabled:", 20, "#000000");
+  this.autoLuckText = new Luts.Object.Text(_0x47e1b9, 220, 395, "text", "已启用:", 20, "#000000");
   this.autoLuckText.strokeThickness = 0;
   this.autoLuckTab.addChild(this.autoLuckText);
   var _0x48528f = Luts.getSetting("autoSpendLuck");
@@ -40682,19 +40682,19 @@ Luts.Object.CardsWindow.prototype.updateAutoLuckTexts = function () {
   this.saveAutoLuck();
 };
 Luts.Object.CardsWindow.prototype.watchAd = function () {
-  new Luts.Object.Popup(this.state, "Are you sure to reshuffle the cards for 2 Bonus Points?", true, function (_0x107afe) {
+  new Luts.Object.Popup(this.state, "确定要花费 2 奖励点数重新洗牌吗?", true, function (_0x107afe) {
     if (_0x107afe) {
       if (Luts.Upgrades.currency[6].greaterThanOrEqualTo(2)) {
         Luts.Upgrades.changeCurrency(6, -2);
         this.randomizeCards();
       } else if (Luts.mtxEnabled && Luts.Connect.kong) {
-        new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Do you want to get more?", true, function (_0x107342) {
+        new Luts.Object.Popup(this.state, "您的奖励点数不足。是否获取更多奖励点数?", true, function (_0x107342) {
           if (_0x107342) {
             this.state.mtxClicked();
           }
         }.bind(this));
       } else {
-        new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Check in daily and unlock achievements to get more BP");
+        new Luts.Object.Popup(this.state, "您的奖励点数不足。请每日签到和解锁成就来获取更多奖励点数");
       }
     }
   }.bind(this));
@@ -40716,7 +40716,7 @@ Luts.Object.CardsWindow.prototype.casinos = function () {
 Luts.Object.CardsWindow.prototype.convert = function () {
   var _0x20f195 = this.state.totalPrestige.v.add(this.state.getPrestigeMulti()).times(this.state.luckMulti.modValue());
   this.convertButton.setActive(false);
-  new Luts.Object.Popup(this.state, Luts.Format.Color("red") + "You will lose your upgrades and your prestige multiplier will reset to 0. You will be able to chose a golden card (which will stay after you prestige) and get " + Luts.Format.Decimal(_0x20f195) + " luck with that you can buy special upgrades. Are you sure to reset everything?", true, function (_0x4da9fe) {
+  new Luts.Object.Popup(this.state, Luts.Format.Color("red") + "您将失去您的升级并且您的声望乘数将重置为 0。您将能够选择一张金色卡片（在声望重置后保留），并获得 " + Luts.Format.Decimal(_0x20f195) + " 幸运点数，您可以用它来购买特殊升级。确定要重置所有内容吗?", true, function (_0x4da9fe) {
     this.convertButton.setActive(true);
     if (_0x4da9fe) {
       this.state.prestige2();
@@ -40796,7 +40796,7 @@ Luts.Object.CardsWindow.prototype.autoGild = function () {
   Luts.Events.onDrawCard.dispatch();
 };
 Luts.Object.HistoryWindow = function (_0x1bfd55) {
-  Luts.Object.Window.call(this, _0x1bfd55, "Roll History");
+  Luts.Object.Window.call(this, _0x1bfd55, "投掷历史");
   this.scroll = new Luts.Object.Scrollable(_0x1bfd55, 10, 70, this.rWidth - 30, this.rHeight - 90);
   this.addChild(this.scroll);
   this.swapChildren(this.scroll, this.closeButton);
@@ -40951,7 +40951,7 @@ Luts.Object.AchievementsWindow.prototype.update = function () {
 Luts.Object.RouletteWindow = function (_0x3c5b3d) {
   Luts.Object.Window.call(this, _0x3c5b3d, "Roulette");
   this.rnd = new Phaser.RandomDataGenerator(Luts.Store.getItem("rouletteRng", Date.now()));
-  this.rouletteUpgrades = [Luts.Upgrades.add("rouletteLevelUpgrade", "Level +", "Increase the level of the roulette", 5, 0, 5, 1, null, 0, null, 4), Luts.Upgrades.add("rouletteFocusUpgrade", "Focus", "Hit your focus next spin", 1, 0, 4, 1, null, 0, null, 4)];
+  this.rouletteUpgrades = [Luts.Upgrades.add("rouletteLevelUpgrade", "等级 +", "增加轮盘的等级", 5, 0, 5, 1, null, 0, null, 4), Luts.Upgrades.add("rouletteFocusUpgrade", "专注", "下一次旋转必中您的专注目标", 1, 0, 4, 1, null, 0, null, 4)];
   Luts.Upgrades.get("rouletteLevelUpgrade").onUpgrade.add(function () {
     Luts.Value.get("rouletteLevel").add(1);
   }, this);
@@ -40981,7 +40981,7 @@ Luts.Object.RouletteWindow = function (_0x3c5b3d) {
   }]);
   this.rouletteArrow.endFill();
   this.addChild(this.rouletteArrow);
-  this.spin = new Luts.Upgrades.add("rouletteSpin", "Roulette Spin", "", 1000000000000000000, 0, 10, 1, null, 0, null, 0);
+  this.spin = new Luts.Upgrades.add("rouletteSpin", "轮盘旋转", "", 1000000000000000000, 0, 10, 1, null, 0, null, 0);
   this.rouletteLevel = Luts.Value.get("rouletteLevel");
   this.betOnBlack = Luts.Store.getItem("betOnBlack", true);
   this.focus = Luts.Store.getItem("rouletteFocus", "nothing");
@@ -45801,7 +45801,7 @@ Luts.Object.DuelHandler.generateEnemy = function (_0x539064) {
   return _0x53f914;
 };
 Luts.Object.DuelHandler.getDesc = function (_0x492656, _0x224833) {
-  return _0x492656.name + "\nPower: " + Luts.Format.Decimal(this.realPower(_0x492656, _0x224833)) + "\nLevel: " + _0x224833 + " (D" + this.levelToDiceType(_0x492656.d, _0x224833) + ")\nRarity: " + _0x492656.rarity + `
+  return _0x492656.name + "\n力量: " + Luts.Format.Decimal(this.realPower(_0x492656, _0x224833)) + "\n等级: " + _0x224833 + " (D" + this.levelToDiceType(_0x492656.d, _0x224833) + ")\n稀有度: " + _0x492656.rarity + `
 
 ` + _0x492656.desc;
 };
@@ -45880,15 +45880,15 @@ Luts.Object.DuelHandler.maxPowerDice = function (_0x1514fe) {
   return this.levelToDiceType(_0x1514fe.d, this.maxLevelDiceType(_0x1514fe.d)) * _0x3da82e;
 };
 Luts.Object.DuelHandler.dice = [{
-  name: "Normal",
-  desc: "Just a normal dice",
+  name: "普通",
+  desc: "只是一个普通的骰子",
   power: 6,
   powerMax: 100,
   d: 6,
   rarity: "common"
 }, {
-  name: "Acolyte",
-  desc: "Heals you by 1 if it rolls more than 5",
+  name: "侍僧",
+  desc: "如果掷出大于 5 的点数，为你恢复 1 点生命值",
   power: 6.1,
   powerMax: 112,
   icon: "acolyte",
@@ -45901,8 +45901,8 @@ Luts.Object.DuelHandler.dice = [{
     }
   }
 }, {
-  name: "Soldier",
-  desc: "Deals 1 damage to the enemy if it rolls more than 5",
+  name: "士兵",
+  desc: "如果掷出大于 5 的点数，对敌人造成 1 点伤害",
   power: 6.4,
   powerMax: 109,
   icon: "soldier",
@@ -45915,8 +45915,8 @@ Luts.Object.DuelHandler.dice = [{
     }
   }
 }, {
-  name: "Elite Soldier",
-  desc: "Deals 3 damage to the enemy if it rolls more than 5",
+  name: "精英士兵",
+  desc: "如果掷出大于 5 的点数，对敌人造成 3 点伤害",
   power: 6.8,
   powerMax: 132,
   icon: "eliteSoldier",
@@ -45929,8 +45929,8 @@ Luts.Object.DuelHandler.dice = [{
     }
   }
 }, {
-  name: "Bomber",
-  desc: "Deals [roll] damage to the enemy",
+  name: "投弹手",
+  desc: "对敌人造成 [roll] 点伤害",
   power: 5.6,
   powerMax: 263,
   icon: "bomber",
@@ -45941,8 +45941,8 @@ Luts.Object.DuelHandler.dice = [{
     return true;
   }
 }, {
-  name: "Priest",
-  desc: "Heals [roll]",
+  name: "牧师",
+  desc: "恢复 [roll] 点生命值",
   power: 8,
   powerMax: 242,
   icon: "priest",
@@ -45953,8 +45953,8 @@ Luts.Object.DuelHandler.dice = [{
     return true;
   }
 }, {
-  name: "Poison",
-  desc: "Poisons the enemy if it rolls more than 5 (1 damage per round)",
+  name: "毒药",
+  desc: "如果掷出大于 5 的点数，使敌人中毒（每回合 1 点伤害）",
   power: 6.5,
   powerMax: 133,
   icon: "poison",
@@ -45967,8 +45967,8 @@ Luts.Object.DuelHandler.dice = [{
     }
   }
 }, {
-  name: "Bishop",
-  desc: "Heals to full if it rolls more than 5",
+  name: "主教",
+  desc: "如果掷出大于 5 的点数，生命值完全恢复",
   power: 6.4,
   powerMax: 276,
   icon: "bishop",
@@ -45981,8 +45981,8 @@ Luts.Object.DuelHandler.dice = [{
     }
   }
 }, {
-  name: "Doctor",
-  desc: "Heals [roll]% of max HP",
+  name: "医生",
+  desc: "恢复最大生命值 [roll]%",
   power: 6.1,
   powerMax: 253,
   icon: "doctor",
@@ -45993,8 +45993,8 @@ Luts.Object.DuelHandler.dice = [{
     return true;
   }
 }, {
-  name: "Fire",
-  desc: "Deals [roll]% of max HP damage to the enemy",
+  name: "火焰",
+  desc: "对敌人造成最大生命值 [roll]% 的伤害",
   power: 3.5,
   powerMax: 310,
   icon: "fire",
@@ -46005,8 +46005,8 @@ Luts.Object.DuelHandler.dice = [{
     return true;
   }
 }, {
-  name: "Guard",
-  desc: "Divides incoming damage by [roll]",
+  name: "守卫",
+  desc: "受到的伤害除以 [roll]",
   power: 5,
   powerMax: 314,
   icon: "shield",
@@ -46020,8 +46020,8 @@ Luts.Object.DuelHandler.dice = [{
     }
   }
 }, {
-  name: "Buckler",
-  desc: "Substracts incoming damage by [roll]",
+  name: "小圆盾",
+  desc: "受到的伤害减去 [roll]",
   power: 7.5,
   powerMax: 223,
   icon: "buckler",
@@ -46035,8 +46035,8 @@ Luts.Object.DuelHandler.dice = [{
     }
   }
 }, {
-  name: "Mage",
-  desc: "Increases outgoing damage by [roll]",
+  name: "法师",
+  desc: "增加 [roll] 点造成的伤害",
   power: 4.2,
   powerMax: 277,
   icon: "mage",
@@ -46050,8 +46050,8 @@ Luts.Object.DuelHandler.dice = [{
     }
   }
 }, {
-  name: "Blood Mage",
-  desc: "Multiplies outgoing damage by [roll]",
+  name: "血法师",
+  desc: "造成的伤害乘以 [roll]",
   power: 5.2,
   powerMax: 314,
   icon: "bloodmage",
@@ -46085,8 +46085,8 @@ Luts.Object.DuelHandler.Test = {
       _0x436a24[_0x4fe633].data = Luts.Object.DuelHandler.dice[_0x436a24[_0x4fe633].d];
       _0x436a24[_0x4fe633].level = _0x436a24[_0x4fe633].l;
     }
-    this.playerOwn = new Luts.Object.DuelDicePlayer(this.rnd, "You");
-    this.playerOther = new Luts.Object.DuelDicePlayer(this.rnd, "Enemy");
+    this.playerOwn = new Luts.Object.DuelDicePlayer(this.rnd, "你");
+    this.playerOther = new Luts.Object.DuelDicePlayer(this.rnd, "敌人");
     this.playerOwn.other = this.playerOther;
     this.playerOther.other = this.playerOwn;
     this.playerOwn.createDices(_0x10017c);
@@ -46095,8 +46095,8 @@ Luts.Object.DuelHandler.Test = {
     var _0x181045;
     do {
       if (!((_0x181045 = this.duel.update()) !== 3 || _0x1dcd24)) {
-        console.log("You Score: " + this.duel.scoreOwn, "Enemy Score: " + this.duel.scoreOther);
-        console.log("You: " + this.duel.playerOwn.hp, "Enemy: " + this.duel.playerOther.hp);
+        console.log("你的分数: " + this.duel.scoreOwn, "敌人的分数: " + this.duel.scoreOther);
+        console.log("你: " + this.duel.playerOwn.hp, "敌人: " + this.duel.playerOther.hp);
       }
     } while (_0x181045 < 4);
     return this.playerOwn.hp > 0;
