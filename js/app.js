@@ -45400,7 +45400,7 @@ Luts.Object.AchievementUnlockedLabel = function (_0x31c100, _0x411d73) {
 
 `;
   _0x2e0cf7 += _0x411d73.unlockText + "; +" + Luts.Object.AchievementsHandler.categoryToBP(_0x411d73.category) + "BP";
-  this.title = new Luts.Object.Text(_0x31c100, 20, 10, "text", "Achievement Unlocked!", 28);
+  this.title = new Luts.Object.Text(_0x31c100, 20, 10, "text", "成就解锁！", 28);
   this.addChild(this.title);
   this.text = new Luts.Object.Text(_0x31c100, 20, 40, "text", _0x2e0cf7, 18, "#000000");
   this.text.wordWrapWidth = this.rWidth - 80;
