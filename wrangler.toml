@@ -1,5 +1,2 @@
 # wrangler.toml
 name = 'dice'
-
-[site]
-bucket = "."
