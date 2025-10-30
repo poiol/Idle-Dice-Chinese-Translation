@@ -36329,7 +36329,7 @@ Luts.State.Game.prototype.openCards = function () {
   this.cardsWindow.toggle();
 };
 Luts.State.Game.prototype.clickPrestige = function () {
-  new Luts.Object.Popup(this, "You will lose all your upgrades and start all over.\nYou will keep your achievements and get " + Luts.Format.Color("red") + "+" + Luts.Format.Percent(this.getPrestigeMulti(), 2) + "</c> multiplier on all dice.\nAre you sure you want to prestige?", true, function (_0x42902f) {
+  new Luts.Object.Popup(this, "你将失去所有升级并重新开始。\n你将保留成就并获得 " + Luts.Format.Color("red") + "+" + Luts.Format.Percent(this.getPrestigeMulti(), 2) + "</c> 所有骰子的乘数。\n你确定要声望重置吗？", true, function (_0x42902f) {
     if (_0x42902f) {
       this.prestige();
     }
@@ -36551,7 +36551,7 @@ Luts.State.Game.prototype.update = function () {
   this.cardsBar.update();
   if (Luts.newContent) {
     Luts.newContent = false;
-    new Luts.Object.Popup(this, "New Update available, refresh now?", true, function (_0x478b3d) {
+    new Luts.Object.Popup(this, "有新的更新可用，现在刷新吗？", true, function (_0x478b3d) {
       if (_0x478b3d) {
         window.location.reload(false);
       }
@@ -36575,7 +36575,7 @@ Luts.State.Game.prototype.update = function () {
 Luts.State.Game.prototype.save = function () {};
 Luts.State.Game.prototype.hardReset = function () {
   Luts.gamePaused = true;
-  new Luts.Object.Popup(this, "Are you sure? All of your progress will be lost forever.", true, function (_0x11709b) {
+  new Luts.Object.Popup(this, "你确定吗？你所有的进度都将永远丢失。", true, function (_0x11709b) {
     if (_0x11709b) {
       Luts.Store.savingEnabled = false;
       Luts.Storage.clear();
@@ -36594,7 +36594,7 @@ Luts.State.Game.prototype.handleTimeAway = function (_0x24a446, _0x496a3e) {
   this.prestigeScore.set(this.prestigeScore.v.add(_0x4f21ae));
   this.setPrestigeButtonText();
   if (_0x24a446.sec >= 10 && !_0x496a3e) {
-    var _0x4b2902 = "You were gone for " + Luts.Format.Time(_0x24a446.sec * 1000, true) + ".\nYou gained: " + Luts.Format.Decimal(Luts.Upgrades.currency[0].minus(_0x559e9e), true);
+    var _0x4b2902 = "你离开了 " + Luts.Format.Time(_0x24a446.sec * 1000, true) + "。\n你获得了: " + Luts.Format.Decimal(Luts.Upgrades.currency[0].minus(_0x559e9e), true);
     new Luts.Object.Popup(this, _0x4b2902);
   }
 };
@@ -36607,27 +36607,27 @@ Luts.State.Game.prototype.averagePerSecond = function () {
 };
 Luts.State.Game.prototype.clickFacebook = function () {
   window.open("https://www.facebook.com/lutsgamedev/", Luts.cordova ? "_system" : null);
-  new Luts.Object.Popup(this, "Thank you!");
+  new Luts.Object.Popup(this, "谢谢你！");
   Luts.Value.get("main0_multi").setMultiplier("promo", 1.1);
 };
 Luts.State.Game.prototype.clickKong = function () {
   window.open("https://www.kongregate.com/accounts/Luts91", Luts.cordova ? "_system" : null);
-  new Luts.Object.Popup(this, "Thank you!");
+  new Luts.Object.Popup(this, "谢谢你！");
   Luts.Value.get("main1_multi").setMultiplier("promo", 1.1);
 };
 Luts.State.Game.prototype.clickReddit = function () {
   window.open("https://www.reddit.com/r/idledice/", Luts.cordova ? "_system" : null);
-  new Luts.Object.Popup(this, "Thank you!");
+  new Luts.Object.Popup(this, "谢谢你！");
   Luts.Value.get("main2_multi").setMultiplier("promo", 1.1);
 };
 Luts.State.Game.prototype.clickDiscord = function () {
   window.open("https://discord.gg/gCe2DbJ", Luts.cordova ? "_system" : null);
-  new Luts.Object.Popup(this, "Thank you!");
+  new Luts.Object.Popup(this, "谢谢你！");
   Luts.Value.get("main3_multi").setMultiplier("promo", 1.1);
 };
 Luts.State.Game.prototype.clickPaypal = function () {
   window.open("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3KFWW7MRK39ME&lc=US", Luts.cordova ? "_system" : null);
-  new Luts.Object.Popup(this, "Thank you!");
+  new Luts.Object.Popup(this, "谢谢你！");
 };
 Luts.State.Game.prototype.clickDisclaimer = function () {
   window.open("https://luts91.github.io/gaDisclaimer", Luts.cordova ? "_system" : null);
