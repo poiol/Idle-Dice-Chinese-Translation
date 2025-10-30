@@ -35381,9 +35381,9 @@ init = function () {
   Luts.Store.init(Luts.Name, Luts.TEMP_STORE);
   Luts.Upgrades.init();
   Luts.Shop.init();
-  Luts.quality = new Luts.Setting("quality", 1, "Quality");
-  this.webgl = new Luts.Setting("canvas", false, "Use WebGL (Requires Restart)", "Switch this if you have performance issues");
-  Luts.numberFormat = new Luts.Setting("numberformat", false, "Use Engineering Notation");
+  Luts.quality = new Luts.Setting("quality", 1, "质量");
+  this.webgl = new Luts.Setting("canvas", false, "使用 WebGL (需要刷新页面)", "切换此选项以解决性能问题");
+  Luts.numberFormat = new Luts.Setting("numberformat", false, "使用工程记数法");
   var _0x5ac005 = new Phaser.Game(Luts.GAME_WIDTH, Luts.GAME_HEIGHT, this.webgl.value ? Phaser.WEBGL_MULTI : Phaser.CANVAS, null, null, false, true);
   _0x5ac005.state.add("Boot", Luts.State.Boot);
   _0x5ac005.state.add("Preloader", Luts.State.Preloader);
@@ -38951,9 +38951,9 @@ Luts.Sound = {
   musicsIndex: []
 };
 Luts.Sound.init = function (_0x14e96a) {
-  Luts.Sound.volume = new Luts.Setting("soundVolume", 1, "Sound Volume");
-  Luts.Sound.enabled = new Luts.Setting("soundEnabled", true, "Enable Sound");
-  Luts.Sound.musicEnabled = new Luts.Setting("musicEnabled", true, "Enable Music");
+  Luts.Sound.volume = new Luts.Setting("soundVolume", 1, "音量");
+  Luts.Sound.enabled = new Luts.Setting("soundEnabled", true, "启用音效");
+  Luts.Sound.musicEnabled = new Luts.Setting("musicEnabled", true, "启用音乐");
   this.state = _0x14e96a;
   this.game = _0x14e96a.game;
   this.game.input.keyboard.addKey(Phaser.Keyboard.M).onDown.add(Luts.Sound.enabled.toggle, Luts.Sound.enabled);
@@ -40111,7 +40111,7 @@ Luts.Object.CreditsWindow = function (_0x39aa94) {
   this.scrollIndex = 0;
   this.texts = [];
   this.getCreditsType("general").forEach(function (_0x4d7435) {
-    this.addCredit("Game made by", _0x4d7435.author);
+    this.addCredit("游戏作者", _0x4d7435.author);
   }.bind(this));
   this.scrollIndex++;
   var _0x2e71e0 = new Luts.Object.Text(this.state, 10, this.scrollIndex * 40, "text", "使用的音效：", 20, "#000000");
@@ -44396,9 +44396,9 @@ Luts.Object.DiceContainer = function (_0x26834c, _0xf0b48a, _0x3b1c58, _0x3483dd
   this.leftUI.addChild(this.matchContainer);
   Luts.DiceRules.Match.all.forEach(function (_0x45a76f, _0x53e9fd) {
     var _0x3483dd = Luts.DiceRules.getData(_0x45a76f);
-    var _0x4f4c2a = Luts.Upgrades.add(_0x45a76f + "_multi", _0x3483dd.name + " Multiplier", "Multiplies points of rolls of " + _0x3483dd.name, _0x3483dd.price, _0x3483dd.multi, 2.35, _0x3483dd.multi / 10, null, 0);
+    var _0x4f4c2a = Luts.Upgrades.add(_0x45a76f + "_multi", _0x3483dd.name + " 乘数", "使 " + _0x3483dd.name + " 的得分翻倍", _0x3483dd.price, _0x3483dd.multi, 2.35, _0x3483dd.multi / 10, null, 0);
     var _0x5cc0d6 = new Luts.Object.MatchButton(_0x26834c, 140, _0x53e9fd * 56 - 170, _0x4f4c2a, _0x3483dd, this);
-    new Luts.Value("totalCombo" + _0x45a76f, 0, "Total " + _0x3483dd.name + " Combos");
+    new Luts.Value("totalCombo" + _0x45a76f, 0, "总计 " + _0x3483dd.name + " 组合");
     this.matchContainer.buttons.push(_0x5cc0d6);
     this.matchContainer.addChild(_0x5cc0d6);
   }.bind(this));
@@ -44756,7 +44756,7 @@ Luts.Object.Card.prototype.clickCard = function () {
       this.state.luckMulti.changeMultiplier("luckPerGold", 1, Luts.Upgrades.value("luckPerGold"), null, "prestige3");
       Luts.Events.onDrawCard.dispatch();
     } else {
-      new Luts.Object.Popup(this.state, "Are you sure to gild this card?", true, function (_0x7bbca7) {
+      new Luts.Object.Popup(this.state, "确定要镀金这张卡牌吗？", true, function (_0x7bbca7) {
         if (_0x7bbca7) {
           Luts.Upgrades.upgrade(this.upgrade);
           Luts.Events.onDrawCard.dispatch();
@@ -44767,7 +44767,7 @@ Luts.Object.Card.prototype.clickCard = function () {
     if (Luts.Upgrades.currency[2].greaterThan(0)) {
       if (!this.state.gildPopup) {
         this.state.gildPopup = true;
-        new Luts.Object.Popup(this.state, "Gild a card first! (Deck tab)", false, function () {
+        new Luts.Object.Popup(this.state, "先镀金一张卡牌! (卡组标签)", false, function () {
           this.state.gildPopup = false;
         }.bind(this));
       }
