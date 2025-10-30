@@ -1,5 +1,5 @@
-name = "poiol-dice"
-compatibility_date = "2025-10-30"
+# wrangler.toml
+name = 'dice'
 
 [site]
 bucket = "."
