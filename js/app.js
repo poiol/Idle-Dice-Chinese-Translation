@@ -43070,26 +43070,26 @@ Luts.Object.DiceWindow.prototype.update = function () {
 };
 Luts.Object.DiceWindow.prototype.bpSpin = function () {
   if (Luts.Upgrades.currency[6].greaterThanOrEqualTo(60)) {
-    new Luts.Object.Popup(this.state, "Do you really want to spend BP to spin?", true, function (_0x24770a) {
+    new Luts.Object.Popup(this.state, "确定要消耗BP进行一次抽取吗？", true, function (_0x24770a) {
       if (_0x24770a) {
         this.clickSpin(true);
         Luts.Upgrades.changeCurrency(6, -60);
       }
     }.bind(this));
   } else if (Luts.Ad.enabled) {
-    new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Do you want to watch an Ad to get 5 BPs?", true, function (_0x7dc415) {
+    new Luts.Object.Popup(this.state, "你的奖励点不足。要观看广告获取 5 BP 吗？", true, function (_0x7dc415) {
       if (_0x7dc415) {
         this.state.shopWindow.requestAdForBp();
       }
     }.bind(this));
   } else if (Luts.mtxEnabled && Luts.Connect.kong) {
-    new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Do you want to get more?", true, function (_0x32e4e4) {
+    new Luts.Object.Popup(this.state, "你的奖励点不足。要获取更多吗？", true, function (_0x32e4e4) {
       if (_0x32e4e4) {
         this.state.mtxClicked();
       }
     }.bind(this));
   } else {
-    new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Check in daily and unlock achievements to get more BP");
+    new Luts.Object.Popup(this.state, "你的奖励点不足。每日签到并解锁成就可获得更多BP");
   }
 };
 Luts.Object.DiceWindow.prototype.addTab = function (_0x215cb0, _0x10bda7) {
@@ -43101,18 +43101,18 @@ Luts.Object.DiceWindow.prototype.addTab = function (_0x215cb0, _0x10bda7) {
   return _0x4ad55d;
 };
 Luts.Object.PvpWindow = function (_0x2e3e5c) {
-  Luts.Object.Window.call(this, _0x2e3e5c, "PvP");
+  Luts.Object.Window.call(this, _0x2e3e5c, "对战");
   this.tabs = new Luts.Object.TabManager(_0x2e3e5c, 0, 0);
-  this.highscoreTab = this.addTab("highscore", "Highscore");
+  this.highscoreTab = this.addTab("highscore", "排行榜");
   this.tabs.show("highscore");
   this.scroll = new Luts.Object.Scrollable(this.state, 10, 120, this.rWidth - 30, this.rHeight - 150);
   this.addChild(this.scroll);
   this.scrollIndex = 0;
-  var _0x5a2859 = new Luts.Object.Text(this.state, 10, 0, "text", "Rank", 20);
+  var _0x5a2859 = new Luts.Object.Text(this.state, 10, 0, "text", "名次", 20);
   this.scroll.addToScrollGroup(_0x5a2859);
-  var _0x1349bb = new Luts.Object.Text(this.state, 100, 0, "text", "Name", 20);
+  var _0x1349bb = new Luts.Object.Text(this.state, 100, 0, "text", "名称", 20);
   this.scroll.addToScrollGroup(_0x1349bb);
-  var _0x365304 = new Luts.Object.Text(this.state, 350, 0, "text", "Power", 20);
+  var _0x365304 = new Luts.Object.Text(this.state, 350, 0, "text", "战力", 20);
   this.scroll.addToScrollGroup(_0x365304);
   var _0x5e75c8 = new Luts.Object.Text(this.state, 550, 0, "text", "Elo", 20);
   this.scroll.addToScrollGroup(_0x5e75c8);
@@ -43203,429 +43203,429 @@ Luts.Object.AchievementsHandler = {};
 Luts.Object.AchievementsHandler.init = function (_0x3ae055) {
   Luts.Achievements.init();
   Luts.Object.AchievementsHandler.state = _0x3ae055;
-  Luts.Object.AchievementsHandler.add("basic", "firstSteps", "First Steps", "Upgrade your Dice", "Unlocks Autoroll", 2, function () {
+  Luts.Object.AchievementsHandler.add("basic", "firstSteps", "初探之旅", "升级你的骰子", "解锁自动掷骰", 2, function () {
     Luts.Lock.unlock("autoRoll");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "points1m", "Millionaire", "Reach a total of 1M points", "1st Dice Multiplier +10%", 1000000, function () {
+  Luts.Object.AchievementsHandler.add("basic", "points1m", "百万富翁", "总计达到 100 万点数", "第一颗骰子倍率 +10%", 1000000, function () {
     Luts.Value.get("main0_multi").setMultiplier("points1m", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "points1b", "Billionaire", "Reach a total of 1B points", "2nd Dice Multiplier +20%", 1000000000, function () {
+  Luts.Object.AchievementsHandler.add("basic", "points1b", "亿万富翁", "总计达到 10 亿点数", "第二颗骰子倍率 +20%", 1000000000, function () {
     Luts.Value.get("main1_multi").setMultiplier("points1b", 1.2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "points1t", "Trillionaire", "Reach a total of 1T points", "3rd Dice Multiplier +30%", 1000000000000, function () {
+  Luts.Object.AchievementsHandler.add("basic", "points1t", "万亿富翁", "总计达到 1 万亿点数", "第三颗骰子倍率 +30%", 1000000000000, function () {
     Luts.Value.get("main2_multi").setMultiplier("points1t", 1.3);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "points1qa", "Quadrillionaire", "Reach a total of 1Qa points", "4th Dice Multiplier +40%", 1000000000000000, function () {
+  Luts.Object.AchievementsHandler.add("basic", "points1qa", "千万亿富翁", "总计达到 1Qa 点数", "第四颗骰子倍率 +40%", 1000000000000000, function () {
     Luts.Value.get("main3_multi").setMultiplier("points1qa", 1.4);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "points1qi", "Quintillionaire", "Reach a total of 1Qi points", "5th Dice Multiplier +50%", 1000000000000000000, function () {
+  Luts.Object.AchievementsHandler.add("basic", "points1qi", "百京富翁", "总计达到 1Qi 点数", "第五颗骰子倍率 +50%", 1000000000000000000, function () {
     Luts.Value.get("main4_multi").setMultiplier("points1qi", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "roll20", "Roll 20", "Roll manually 20 times", "Autoroll interval -1%", 20, function () {
+  Luts.Object.AchievementsHandler.add("basic", "roll20", "掷骰 20 次", "手动掷骰 20 次", "自动掷骰间隔 -1%", 20, function () {
     Luts.Value.get("rollInterval").setMultiplier("roll20", 0.99);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "roll1k", "Roll 1000", "Roll manually 1000 times", "Autoroll interval -10%", 1000, function () {
+  Luts.Object.AchievementsHandler.add("basic", "roll1k", "掷骰 1000 次", "手动掷骰 1000 次", "自动掷骰间隔 -10%", 1000, function () {
     Luts.Value.get("rollInterval").setMultiplier("roll1000", 0.9);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "lazy", "Lazy", "Roll automaticually 1000 times", "Animation Speed +10%", 1000, function () {
+  Luts.Object.AchievementsHandler.add("basic", "lazy", "偷懒", "自动掷骰 1000 次", "动画速度 +10%", 1000, function () {
     Luts.Value.get("rollAnim").setMultiplier("lazy", 0.9);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "playtime1", "Player", "Play for 1 hour", "Combomultiplier +10%", 1, function () {
+  Luts.Object.AchievementsHandler.add("basic", "playtime1", "玩家", "游玩 1 小时", "连击倍率 +10%", 1, function () {
     Luts.Value.get("comboMulti").setMultiplier("playtime1", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "playtime24", "Freak", "Play for 24 hours", "Combomultiplier +20%", 24, function () {
+  Luts.Object.AchievementsHandler.add("basic", "playtime24", "狂热者", "游玩 24 小时", "连击倍率 +20%", 24, function () {
     Luts.Value.get("comboMulti").setMultiplier("playtime24", 1.2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "playtime168", "No life", "Play for 1 week", "Combomultiplier +30%", 168, function () {
+  Luts.Object.AchievementsHandler.add("basic", "playtime168", "不眠不休", "游玩 1 周", "连击倍率 +30%", 168, function () {
     Luts.Value.get("comboMulti").setMultiplier("playtime168", 1.3);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "rollFive", "0.077%", "Roll five of a kind", "Combo Multiplier +50%", 1, function () {
+  Luts.Object.AchievementsHandler.add("basic", "rollFive", "0.077%", "掷出五同点", "连击倍率 +50%", 1, function () {
     Luts.Value.get("comboMulti").setMultiplier("rollFive", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "prestige2", "Double the fun", "Reach a prestige multiplier of 200%", "Unlocks advanced achievements", 2, function () {
+  Luts.Object.AchievementsHandler.add("basic", "prestige2", "双倍乐趣", "达到 200% 转生倍率", "解锁进阶成就", 2, function () {
     Luts.Lock.unlock("advancedAchievements");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "prestige10", "Ten times the fun", "Reach a prestige multiplier of x10", "Cardprogression +10%", 10, function () {
+  Luts.Object.AchievementsHandler.add("basic", "prestige10", "十倍乐趣", "达到 x10 转生倍率", "卡牌进度 +10%", 10, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("prestige10", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "prestige100", "Hundred times the fun", "Reach a prestige multiplier of x100", "Cardprogression +10%", 100, function () {
+  Luts.Object.AchievementsHandler.add("basic", "prestige100", "百倍乐趣", "达到 x100 转生倍率", "卡牌进度 +10%", 100, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("prestige100", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("basic", "prestige1k", "Prestige Expert", "Reach a prestige multiplier of x1k", "Cardprogression +10%", 1000, function () {
+  Luts.Object.AchievementsHandler.add("basic", "prestige1k", "转生专家", "达到 x1k 转生倍率", "卡牌进度 +10%", 1000, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("prestige1k", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards5", "Full Hand", "Draw 5 cards in one run", "Cardprogression +10%", 5, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards5", "满手牌", "单次抽到 5 张牌", "卡牌进度 +10%", 5, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("cards5", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards10", "Double or nothing", "Draw 10 cards in one run", "Unlocks roulette", 10, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards10", "全押或归零", "单次抽到 10 张牌", "解锁轮盘", 10, function () {
     Luts.Lock.unlock("roulette");
     Luts.Lock.unlock("expertAchievements");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards15", "Three hands full", "Draw 15 cards in one run", "Cardprogression +10%", 15, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards15", "三手满", "单次抽到 15 张牌", "卡牌进度 +10%", 15, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("cards15", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards20", "Draw 20", "Draw 20 cards in one run", "Cardprogression +10%", 20, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards20", "抽 20 张", "单次抽到 20 张牌", "卡牌进度 +10%", 20, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("cards20", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards26", "Half deck", "Draw 26 cards in one run", "Unlocks buy all", 26, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards26", "半副牌", "单次抽到 26 张牌", "解锁一键购买", 26, function () {
     Luts.Lock.unlock("buyAll");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards32", "Wrong type of deck", "Draw 32 cards in one run", "Unlocks auto ascension", 32, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards32", "错版牌组", "单次抽到 32 张牌", "解锁自动飞升", 32, function () {
     Luts.Lock.unlock("autoAscend");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards45", "Almost done", "Draw 45 cards in one run", "Cardprogression +10%", 45, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards45", "接近完成", "单次抽到 45 张牌", "卡牌进度 +10%", 45, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("cards45", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards52", "Full deck", "Draw 52 cards in one run", "Unlocks decks", 52, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards52", "整副牌", "单次抽到 52 张牌", "解锁牌组", 52, function () {
     Luts.Lock.unlock("decks");
     Luts.Lock.unlock("legendaryAchievements");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_2", "Strategic Mastermind", "Draw 4 2s in one run", "Cardprogression +20%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_2", "策略大师", "单次抽到 4 张2", "卡牌进度 +20%", 4, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("cards4_2", 1.2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_3", "Equality", "Draw 4 3s in one run", "All dice multiplier +30%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_3", "平等", "单次抽到 4 张3", "所有骰子倍率 +30%", 4, function () {
     Luts.Value.get("main0_multi").setMultiplier("cards4_3", 1.3);
     Luts.Value.get("main1_multi").setMultiplier("cards4_3", 1.3);
     Luts.Value.get("main2_multi").setMultiplier("cards4_3", 1.3);
     Luts.Value.get("main3_multi").setMultiplier("cards4_3", 1.3);
     Luts.Value.get("main4_multi").setMultiplier("cards4_3", 1.3);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_4", "Into heaven", "Draw 4 4s in one run", "Ascension multiplier +40%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_4", "直上云霄", "单次抽到 4 张4", "飞升倍率 +40%", 4, function () {
     Luts.Value.get("ascensionMulti").setMultiplier("cards4_4", 1.4);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_5", "Combo master", "Draw 4 5s in one run", "Combo multiplier +50%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_5", "连击大师", "单次抽到 4 张5", "连击倍率 +50%", 4, function () {
     Luts.Value.get("comboMulti").setMultiplier("cards4_5", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_6", "5th Dice", "Draw 4 6s in one run", "5th dice multiplier +50%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_6", "第 5 颗骰子", "单次抽到 4 张6", "第 5 颗骰子倍率 +50%", 4, function () {
     Luts.Value.get("main4_multi").setMultiplier("cards4_6", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_7", "4th Dice", "Draw 4 7s in one run", "4th dice multiplier +40%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_7", "第 4 颗骰子", "单次抽到 4 张7", "第 4 颗骰子倍率 +40%", 4, function () {
     Luts.Value.get("main3_multi").setMultiplier("cards4_7", 1.4);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_8", "3rd Dice", "Draw 4 8s in one run", "3rd dice multiplier +30%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_8", "第 3 颗骰子", "单次抽到 4 张8", "第 3 颗骰子倍率 +30%", 4, function () {
     Luts.Value.get("main2_multi").setMultiplier("cards4_8", 1.3);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_9", "2nd Dice", "Draw 4 9s in one run", "2nd dice multiplier +20%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_9", "第 2 颗骰子", "单次抽到 4 张9", "第 2 颗骰子倍率 +20%", 4, function () {
     Luts.Value.get("main1_multi").setMultiplier("cards4_9", 1.2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_10", "1st Dice", "Draw 4 10s in one run", "1st dice multiplier +10%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_10", "第 1 颗骰子", "单次抽到 4 张10", "第 1 颗骰子倍率 +10%", 4, function () {
     Luts.Value.get("main0_multi").setMultiplier("cards4_10", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_J", "Faster!!", "Draw 4 Junkers in one run", "Autoroll interval -10%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_J", "更快!!", "单次抽到 4 张J", "自动掷骰间隔 -10%", 4, function () {
     Luts.Value.get("rollInterval").setMultiplier("cards4_J", 0.9);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_Q", "Multiply the multipliers", "Draw 4 Queens in one run", "Multiplier dice multiplier +50%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_Q", "倍上加倍", "单次抽到 4 张Q", "加成骰子倍率 +50%", 4, function () {
     Luts.Value.get("main5_multi").setMultiplier("cards4_Q", 1.5);
     Luts.Value.get("main6_multi").setMultiplier("cards4_Q", 1.5);
     Luts.Value.get("main7_multi").setMultiplier("cards4_Q", 1.5);
     Luts.Value.get("main8_multi").setMultiplier("cards4_Q", 1.5);
     Luts.Value.get("main9_multi").setMultiplier("cards4_Q", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_K", "Patience", "Draw 4 Kings in one run", "All dice multiplier x2", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_K", "耐心", "单次抽到 4 张K", "所有骰子倍率 x2", 4, function () {
     Luts.Value.get("main0_multi").setMultiplier("cards4_K", 2);
     Luts.Value.get("main1_multi").setMultiplier("cards4_K", 2);
     Luts.Value.get("main2_multi").setMultiplier("cards4_K", 2);
     Luts.Value.get("main3_multi").setMultiplier("cards4_K", 2);
     Luts.Value.get("main4_multi").setMultiplier("cards4_K", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("advanced", "cards4_A", "No Patience", "Draw 4 Aces in one run", "Roulette animation duration -50%", 4, function () {
+  Luts.Object.AchievementsHandler.add("advanced", "cards4_A", "没耐心", "单次抽到 4 张A", "轮盘动画时长 -50%", 4, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("cards4_A", 0.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "spin5", "Spin 5", "Spin the roulette 5 times in total", "Roulette animation duration -5%", 5, function () {
+  Luts.Object.AchievementsHandler.add("expert", "spin5", "旋转 5 次", "累计旋转轮盘 5 次", "轮盘动画时长 -5%", 5, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("spin5", 0.95);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "spin100", "Spin 100", "Spin the roulette 100 times in total", "Card progression +10%", 100, function () {
+  Luts.Object.AchievementsHandler.add("expert", "spin100", "旋转 100 次", "累计旋转轮盘 100 次", "卡牌进度 +10%", 100, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("spin100", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "spinRun5", "Spinner", "Spin the roulette 5 times in one run", "Roulette animation duration -5%", 5, function () {
+  Luts.Object.AchievementsHandler.add("expert", "spinRun5", "旋转者", "单次运行旋转轮盘 5 次", "轮盘动画时长 -5%", 5, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("spinRun5", 0.95);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "spinRun15", "Expert Spinner", "Spin the roulette 15 times in one run", "Card progression +20%", 15, function () {
+  Luts.Object.AchievementsHandler.add("expert", "spinRun15", "旋转高手", "单次运行旋转轮盘 15 次", "卡牌进度 +20%", 15, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("spinRun15", 1.2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "spinRun100", "Fidget Spinner", "Spin the roulette 50 times in one run", "Unlocks auto spin", 50, function () {
+  Luts.Object.AchievementsHandler.add("expert", "spinRun100", "指尖陀螺", "单次运行旋转轮盘 50 次", "解锁自动旋转", 50, function () {
     Luts.Lock.unlock("autoSpin");
   }.bind(this));
   Luts.Achievements.get("spinRun100").goal = Decimal(50);
-  Luts.Object.AchievementsHandler.add("expert", "roulette3", "Red or Black?", "Reach roulette level 3", "Roulette animation duration -5%", 3, function () {
+  Luts.Object.AchievementsHandler.add("expert", "roulette3", "红还是黑？", "达到轮盘等级 3", "轮盘动画时长 -5%", 3, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("roulette3", 0.95);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "roulette5", "Addicted", "Reach roulette level 5", "Card progression +25%", 5, function () {
+  Luts.Object.AchievementsHandler.add("expert", "roulette5", "上瘾了", "达到轮盘等级 5", "卡牌进度 +25%", 5, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("roulette5", 1.25);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "roulette7", "Roulette 7", "Reach roulette level 7", "First Dice x2", 7, function () {
+  Luts.Object.AchievementsHandler.add("expert", "roulette7", "轮盘 7", "达到轮盘等级 7", "第一颗骰子 x2", 7, function () {
     Luts.Value.get("main0_multi").setMultiplier("roulette7", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "roulette8", "Roulette 8", "Reach roulette level 8", "Second Dice x2", 8, function () {
+  Luts.Object.AchievementsHandler.add("expert", "roulette8", "轮盘 8", "达到轮盘等级 8", "第二颗骰子 x2", 8, function () {
     Luts.Value.get("main1_multi").setMultiplier("roulette8", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "roulette9", "Roulette 9", "Reach roulette level 9", "Third Dice x2", 9, function () {
+  Luts.Object.AchievementsHandler.add("expert", "roulette9", "轮盘 9", "达到轮盘等级 9", "第三颗骰子 x2", 9, function () {
     Luts.Value.get("main2_multi").setMultiplier("roulette9", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "roulette10", "Roulette 10", "Reach roulette level 10", "Fourth Dice x2", 10, function () {
+  Luts.Object.AchievementsHandler.add("expert", "roulette10", "轮盘 10", "达到轮盘等级 10", "第四颗骰子 x2", 10, function () {
     Luts.Value.get("main3_multi").setMultiplier("roulette10", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "roulette11", "Roulette 11", "Reach roulette level 11", "Fifth Dice x2", 11, function () {
+  Luts.Object.AchievementsHandler.add("expert", "roulette11", "轮盘 11", "达到轮盘等级 11", "第五颗骰子 x2", 11, function () {
     Luts.Value.get("main4_multi").setMultiplier("roulette11", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "roulette20", "Roulette 20", "Reach roulette level 20", "Unlocks auto draw", 20, function () {
+  Luts.Object.AchievementsHandler.add("expert", "roulette20", "轮盘 20", "达到轮盘等级 20", "解锁自动抽牌", 20, function () {
     Luts.Lock.unlock("autoDraw");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "roulette25", "Roulette 25", "Reach roulette level 25", "Unlocks auto gild", 25, function () {
+  Luts.Object.AchievementsHandler.add("expert", "roulette25", "轮盘 25", "达到轮盘等级 25", "解锁自动镀金", 25, function () {
     Luts.Lock.unlock("autoGild");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "roulette34", "Roulette Max", "Reach roulette level 34", "Prestige Multipier x5", 34, function () {
+  Luts.Object.AchievementsHandler.add("expert", "roulette34", "轮盘满级", "达到轮盘等级 34", "转生倍率 x5", 34, function () {
     Luts.Value.get("prestigeMM").setMultiplier("roulette34", 5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "pair1000", "Pair Master", "Roll 1000 Pairs", "Combo Multiplier +10%", 1000, function () {
+  Luts.Object.AchievementsHandler.add("expert", "pair1000", "对子大师", "掷出 1000 次对子", "连击倍率 +10%", 1000, function () {
     Luts.Value.get("comboMulti").setMultiplier("pair1000", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "triplet1000", "Triplet Master", "Roll 1000 Triplets", "Combo Multiplier +20%", 1000, function () {
+  Luts.Object.AchievementsHandler.add("expert", "triplet1000", "三条大师", "掷出 1000 次三条", "连击倍率 +20%", 1000, function () {
     Luts.Value.get("comboMulti").setMultiplier("triplet1000", 1.2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "twopair1000", "Two Pair Master", "Roll 1000 Two Pairs", "Combo Multiplier +10%", 1000, function () {
+  Luts.Object.AchievementsHandler.add("expert", "twopair1000", "两对大师", "掷出 1000 次两对", "连击倍率 +10%", 1000, function () {
     Luts.Value.get("comboMulti").setMultiplier("triplet1000", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "four1000", "Four Master", "Roll 1000 Fours", "Combo Multiplier +40%", 1000, function () {
+  Luts.Object.AchievementsHandler.add("expert", "four1000", "四条大师", "掷出 1000 次四条", "连击倍率 +40%", 1000, function () {
     Luts.Value.get("comboMulti").setMultiplier("four1000", 1.4);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "straight1000", "Straight Master", "Roll 1000 Straights", "Combo Multiplier +30%", 1000, function () {
+  Luts.Object.AchievementsHandler.add("expert", "straight1000", "顺子大师", "掷出 1000 次顺子", "连击倍率 +30%", 1000, function () {
     Luts.Value.get("comboMulti").setMultiplier("straight1000", 1.3);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "fullhouse1000", "Full House Master", "Roll 1000 Full Houses", "Combo Multiplier +30%", 1000, function () {
+  Luts.Object.AchievementsHandler.add("expert", "fullhouse1000", "葫芦大师", "掷出 1000 次葫芦", "连击倍率 +30%", 1000, function () {
     Luts.Value.get("comboMulti").setMultiplier("fullhouse1000", 1.3);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("expert", "five1000", "Five Master", "Roll 1000 Fives", "Combo Multiplier x5", 1000, function () {
+  Luts.Object.AchievementsHandler.add("expert", "five1000", "五条大师", "掷出 1000 次五条", "连击倍率 x5", 1000, function () {
     Luts.Value.get("comboMulti").setMultiplier("five1000", 5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "gold_2", "God of strategy", "Have 4 golden 2s", "Card progression x2", 4, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "gold_2", "策略之神", "拥有 4 张金色 2", "卡牌进度 x2", 4, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("gold2", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "gold_3", "Equality", "Have 4 golden 3s", "Prestige Multi +30%", 4, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "gold_3", "平等", "拥有 4 张金色 3", "转生倍率 +30%", 4, function () {
     Luts.Value.get("prestigeMM").setMultiplier("gold3", 1.3);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "gold_4", "Into the universe", "Have 4 golden 4s", "Ascension Multiplier +40%", 4, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "gold_4", "进入宇宙", "拥有 4 张金色 4", "飞升倍率 +40%", 4, function () {
     Luts.Value.get("ascensionMulti").setMultiplier("gold_4", 1.4);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "gold_5", "Combining galaxies", "Have 4 golden 5s", "Combo Multiplier +50%", 4, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "gold_5", "并联星系", "拥有 4 张金色 5", "连击倍率 +50%", 4, function () {
     Luts.Value.get("comboMulti").setMultiplier("gold_5", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "gold_A", "Spinning Ace", "Have 4 golden As", "Chip Multi x2", 4, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "gold_A", "旋转的 A", "拥有 4 张金色 A", "筹码倍率 x2", 4, function () {
     Luts.Value.get("chipMulti").setMultiplier("gold_5", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "noPrestige", "No prestige needed", "Convert a deck without prestiging", "Card progression +50%", 1, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "noPrestige", "无需转生", "不转生转换一次牌组", "卡牌进度 +50%", 1, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("noPrestige", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "golden52", "Golden deck", "Have 52 golden cards", "?", 52, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "golden52", "金色牌组", "拥有 52 张金卡", "？", 52, function () {
     Luts.Lock.unlock("goldenDeck");
     Luts.Lock.unlock("godlikeAchievements");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "spin10noLevel", "Unlucky", "Spin the roulette 10 times on level 0 without leveling it up", "Chip Multi x2", 10, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "spin10noLevel", "倒霉蛋", "在 0 级轮盘连续旋转 10 次且不升级", "筹码倍率 x2", 10, function () {
     Luts.Value.get("chipMulti").setMultiplier("spin10noLevel", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "focus10", "Meditation", "Have a focus charge of 10", "Unlocks auto roulette focus", 10, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "focus10", "冥想", "专注值达到 10", "解锁自动轮盘专注", 10, function () {
     Luts.Lock.unlock("autoRouletteFocus");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "autoroll100", "Perfect Speed", "Have an reroll chance of 100%", "Adds all dice x2 to J-Card", 100, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "autoroll100", "完美速度", "重掷几率达到 100%", "将所有骰子 x2 加入 J 牌", 100, function () {
     Luts.Lock.unlock("autoroll100");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "lucke100", "Goose", "Have 1e100 Luck", "Unlocks auto spend luck", Decimal("1e+100"), function () {
+  Luts.Object.AchievementsHandler.add("legendary", "lucke100", "鹅", "拥有 1e100 幸运", "解锁自动消耗幸运", Decimal("1e+100"), function () {
     Luts.Lock.unlock("autoLuck");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("legendary", "noRoll", "Too slow", "Dont roll the dice for 1 minute", "Roll Interval x0.5", 60, function () {
+  Luts.Object.AchievementsHandler.add("legendary", "noRoll", "太慢了", "1 分钟内不掷骰", "掷骰间隔 x0.5", 60, function () {
     Luts.Value.get("rollInterval").setMultiplier("noRoll", 0.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "roulette35", "Roulette Prestige", "Reach roulette level 35", "Unlocks Roulette Prestige and the slot machine", 35, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "roulette35", "轮盘转生", "达到轮盘等级 35", "解锁轮盘转生与老虎机", 35, function () {
     Luts.Lock.unlock("slotMachine");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "cupPoint", "Time for a...", "Hit the highest item in the slot machine", "Unlocks dice duels", 1, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "cupPoint", "是时候来个……", "在老虎机中命中最高奖项", "解锁骰子对决", 1, function () {
     Luts.Lock.unlock("diceDuel");
     Luts.Lock.unlock("lutslikeAchievements");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino1", "Investment Beginner", "Have one casino", "Get 0.1% interest per second", 1, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino1", "投资新手", "拥有 1 家赌场", "每秒获得 0.1% 利息", 1, function () {
     Luts.Value.get("interest").set(0.001);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino2", "Roulette Investor", "Have 2 casinos", "Unlocks auto roulette upgrade", 2, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino2", "轮盘投资者", "拥有 2 家赌场", "解锁轮盘自动升级", 2, function () {
     Luts.Lock.unlock("autoRouletteUpgrade");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino3", "Investor", "Have 3 casinos", "Interest x2", 3, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino3", "投资者", "拥有 3 家赌场", "利息 x2", 3, function () {
     Luts.Value.get("interest").setMultiplier("casino3", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino4", "Investing into speed", "Have 4 casinos", "Roulette Animation Duration -50%", 4, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino4", "投资速度", "拥有 4 家赌场", "轮盘动画时长 -50%", 4, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("casino4", 0.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino5", "Chip Factory", "Have 5 casinos", "Chip Multi x2", 5, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino5", "筹码工厂", "拥有 5 家赌场", "筹码倍率 x2", 5, function () {
     Luts.Value.get("chipMulti").setMultiplier("casino5", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino6", "Swiss Bank Account", "Have 6 casinos", "Keep 0.001% of your luck after a investment", 6, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino6", "瑞士银行账户", "拥有 6 家赌场", "投资后保留 0.001% 幸运", 6, function () {
     Luts.Value.get("luckKept").set(0.00001);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino7", "Lucky Number", "Have 7 casinos", "Interest +50%", 7, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino7", "幸运数字", "拥有 7 家赌场", "利息 +50%", 7, function () {
     Luts.Value.get("interest").setMultiplier("casino7", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino8", "Chip Mass Production", "Have 8 casinos", "Chip Multi x2", 8, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino8", "筹码量产", "拥有 8 家赌场", "筹码倍率 x2", 8, function () {
     Luts.Value.get("chipMulti").setMultiplier("casino8", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino9", "Corruption", "Have 9 casinos", "Luck kept after investment x2", 9, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino9", "腐化", "拥有 9 家赌场", "投资后保留幸运 x2", 9, function () {
     Luts.Value.get("luckKept").setMultiplier("casino9", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino10", "Employees", "Have 10 casinos", "Skill Points per casino x2", 10, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino10", "雇员", "拥有 10 家赌场", "每家赌场技能点 x2", 10, function () {
     Luts.Value.get("skillPointMulti").setMultiplier("casino10", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino11", "Can buy anything", "Have 11 casinos", "Luck multiplier x5", 11, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino11", "无所不买", "拥有 11 家赌场", "幸运倍率 x5", 11, function () {
     Luts.Value.get("luckMulti").setMultiplier("casino11", 5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino12", "Getting Lazy", "Have 12 casinos", "Unlocks auto convert", 12, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino12", "越来越懒", "拥有 12 家赌场", "解锁自动转换", 12, function () {
     Luts.Lock.unlock("autoConvert");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino13", "Unlucky Number", "Have 13 casinos", "Interest +25%", 13, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino13", "不吉利的数字", "拥有 13 家赌场", "利息 +25%", 13, function () {
     Luts.Value.get("interest").setMultiplier("casino13", 1.25);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino14", "Particle Accelerator", "Have 14 casinos", "Roulette Animation Duration -50%", 14, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino14", "粒子加速器", "拥有 14 家赌场", "轮盘动画时长 -50%", 14, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("casino14", 0.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino15", "Greed", "Have 15 casinos", "Luck kept after investment x2", 15, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino15", "贪婪", "拥有 15 家赌场", "投资后保留幸运 x2", 15, function () {
     Luts.Value.get("luckKept").setMultiplier("casino15", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino16", "Hexadecagonal Chips", "Have 16 casinos", "Chip Multi x2", 16, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino16", "十六边形筹码", "拥有 16 家赌场", "筹码倍率 x2", 16, function () {
     Luts.Value.get("chipMulti").setMultiplier("casino16", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino17", "Happiness", "Have 17 casinos", "Luck Multiplier x4", 17, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino17", "幸福", "拥有 17 家赌场", "幸运倍率 x4", 17, function () {
     Luts.Value.get("luckMulti").setMultiplier("casino17", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino18", "No flavor for this one", "Have 18 casinos", "Interest +12.5%", 18, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino18", "这条没有文案", "拥有 18 家赌场", "利息 +12.5%", 18, function () {
     Luts.Value.get("interest").setMultiplier("casino18", 1.125);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino19", "Accelerator Farm", "Have 19 casinos", "Roulette Animation Duration -50%", 19, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino19", "加速器农场", "拥有 19 家赌场", "轮盘动画时长 -50%", 19, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("casino19", 0.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino20", "Slaves", "Have 20 casinos", "Skill Points per casino x2", 20, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino20", "奴隶", "拥有 20 家赌场", "每家赌场技能点 x2", 20, function () {
     Luts.Value.get("skillPointMulti").setMultiplier("casino20", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino21", "Blackjack", "Have 21 casinos", "Unlocks Auto Upgrade", 21, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino21", "黑杰克", "拥有 21 家赌场", "解锁自动升级", 21, function () {
     Luts.Lock.unlock("autoUpgrade");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino22", "Interesting", "Have 22 casinos", "Interest +25%", 22, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino22", "有趣", "拥有 22 家赌场", "利息 +25%", 22, function () {
     Luts.Value.get("interest").setMultiplier("casino22", 1.25);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino23", "Sun Harvesting", "Have 23 casinos", "Roulette Animation Duration -25%", 23, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino23", "采集太阳", "拥有 23 家赌场", "轮盘动画时长 -25%", 23, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("casino23", 0.75);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino24", "Gluttony", "Have 24 casinos", "Luck kept after investment x1.5", 24, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino24", "暴食", "拥有 24 家赌场", "投资后保留幸运 x1.5", 24, function () {
     Luts.Value.get("luckKept").setMultiplier("casino24", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino25", "Mega Chips", "Have 25 casinos", "Chip Multi x2", 25, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino25", "超巨筹码", "拥有 25 家赌场", "筹码倍率 x2", 25, function () {
     Luts.Value.get("chipMulti").setMultiplier("casino25", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino26", "Fulfilment", "Have 26 casinos", "Luck Multiplier x3", 26, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino26", "满足", "拥有 26 家赌场", "幸运倍率 x3", 26, function () {
     Luts.Value.get("luckMulti").setMultiplier("casino26", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino27", "Upgrade Machines", "Have 27 casinos", "Auto Upgrade Interval x0.5", 27, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino27", "升级机器", "拥有 27 家赌场", "自动升级间隔 x0.5", 27, function () {
     Luts.Value.get("autoUpgradeInterval").setMultiplier("casino27", 0.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino28", "Very Interesting", "Have 28 casinos", "Interest +50%", 28, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino28", "非常有趣", "拥有 28 家赌场", "利息 +50%", 28, function () {
     Luts.Value.get("interest").setMultiplier("casino28", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino29", "Speed of light", "Have 29 casinos", "Roulette Animation Duration -25%", 29, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino29", "光速", "拥有 29 家赌场", "轮盘动画时长 -25%", 29, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("casino29", 0.75);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino30", "Lust", "Have 30 casinos", "Luck kept after investment x1.5", 30, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino30", "色欲", "拥有 30 家赌场", "投资后保留幸运 x1.5", 30, function () {
     Luts.Value.get("luckKept").setMultiplier("casino30", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino33", "God of Luck", "Have 33 casinos", "Interest x10", 33, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino33", "幸运之神", "拥有 33 家赌场", "利息 x10", 33, function () {
     Luts.Value.get("interest").setMultiplier("casino33", 10);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino35", "Giga Chips", "Have 35 casinos", "Chip Multi x2", 35, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino35", "千兆筹码", "拥有 35 家赌场", "筹码倍率 x2", 35, function () {
     Luts.Value.get("chipMulti").setMultiplier("casino35", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino40", "Gladstone Gander", "Have 40 casinos", "Luck Multiplier x2", 40, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino40", "葛拉德斯通·甘德", "拥有 40 家赌场", "幸运倍率 x2", 40, function () {
     Luts.Value.get("luckMulti").setMultiplier("casino40", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino45", "Upgrade Slaves", "Have 45 casinos", "Auto Upgrade Interval x0.5", 45, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino45", "升级奴隶", "拥有 45 家赌场", "自动升级间隔 x0.5", 45, function () {
     Luts.Value.get("autoUpgradeInterval").setMultiplier("casino45", 0.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino50", "Need more Names", "Have 50 casinos", "Interest +50%", 50, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino50", "已经想不出名字了", "拥有 50 家赌场", "利息 +50%", 50, function () {
     Luts.Value.get("interest").setMultiplier("casino50", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino55", "Hypnotizing", "Have 55 casinos", "Roulette Animation Duration -25%", 55, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino55", "催眠", "拥有 55 家赌场", "轮盘动画时长 -25%", 55, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("casino55", 0.75);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino60", "Pride", "Have 60 casinos", "Luck kept after investment x2", 60, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino60", "傲慢", "拥有 60 家赌场", "投资后保留幸运 x2", 60, function () {
     Luts.Value.get("luckKept").setMultiplier("casino60", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino65", "What will you do with all these Chips?", "Have 65 casinos", "Chip Multi x10", 65, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino65", "这么多筹码你要做什么？", "拥有 65 家赌场", "筹码倍率 x10", 65, function () {
     Luts.Value.get("chipMulti").setMultiplier("casino65", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino70", "Nothing bad will ever happen to you", "Have 70 casinos", "Luck Multiplier x3", 70, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino70", "你将永远一帆风顺", "拥有 70 家赌场", "幸运倍率 x3", 70, function () {
     Luts.Value.get("luckMulti").setMultiplier("casino70", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino75", "Upgrade Drones", "Have 75 casinos", "Auto Upgrade Interval x0.5", 75, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino75", "升级无人机", "拥有 75 家赌场", "自动升级间隔 x0.5", 75, function () {
     Luts.Value.get("autoUpgradeInterval").setMultiplier("casino75", 0.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino80", "Seriously...", "Have 80 casinos", "Interest +50%", 80, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino80", "说真的……", "拥有 80 家赌场", "利息 +50%", 80, function () {
     Luts.Value.get("interest").setMultiplier("casino80", 1.5);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino85", "Can your Computer even handle this speed", "Have 85 casinos", "Roulette Animation Duration -25%", 85, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino85", "你的电脑扛得住这速度吗", "拥有 85 家赌场", "轮盘动画时长 -25%", 85, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("casino85", 0.75);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino90", "Envy", "Have 90 casinos", "Luck kept after investment x2", 90, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino90", "嫉妒", "拥有 90 家赌场", "投资后保留幸运 x2", 90, function () {
     Luts.Value.get("luckKept").setMultiplier("casino90", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino95", "Stop", "Have 95 casinos", "Luck Multiplier x4", 95, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino95", "停下", "拥有 95 家赌场", "幸运倍率 x4", 95, function () {
     Luts.Value.get("luckMulti").setMultiplier("casino95", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino100", "No need to play anymore", "Have 100 casinos", "Auto Upgrade Interval x0.1", 100, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino100", "不用再玩了", "拥有 100 家赌场", "自动升级间隔 x0.1", 100, function () {
     Luts.Value.get("autoUpgradeInterval").setMultiplier("casino100", 0.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("godlike", "casino200", "Fine, go double as far as it was ever intended", "Have 200 casinos", "Skill Point Multi x2", 200, function () {
+  Luts.Object.AchievementsHandler.add("godlike", "casino200", "好吧，再把原计划加倍推进", "拥有 200 家赌场", "技能点倍率 x2", 200, function () {
     Luts.Value.get("skillPointMulti").setMultiplier("casino200", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "slotfull", "Always winning", "Fill the slot machine layout completely with 7s", "Unlocks auto slot spin", 50, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "slotfull", "常胜", "用 7 填满老虎机布局", "解锁自动老虎机旋转", 50, function () {
     Luts.Lock.unlock("autoSlotSpin");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "slotfullDuel", "Full Power", "Fill the slot machine layout completely with cup points", "Doubles Cup points from slot machine", 50, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "slotfullDuel", "满功率", "用杯分填满老虎机布局", "老虎机杯分翻倍", 50, function () {
     Luts.Value.get("cupPointMulti").setMultiplier("slotfullDuel", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "allSlotItems", "All on one", "Buy 50 of every slot item", "Unlocks slot fill and disables export block", 350, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "allSlotItems", "全都买", "每种老虎机道具购买 50 个", "解锁一键填充并取消导出限制", 350, function () {
     Luts.Lock.unlock("slotFill");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "roulette50", "You forgot something", "Reach roulette level 50", "Unlocks auto roulette prestige", 50, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "roulette50", "你忘了点什么", "达到轮盘等级 50", "解锁自动轮盘转生", 50, function () {
     Luts.Lock.unlock("autoRoulettePrestige");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "diamonds1m", "Swimming in diamonds", "Collect 1 million diamonds", "Unlocks auto invest", 1000000, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "diamonds1m", "在钻石里游泳", "收集 100 万钻石", "解锁自动投资", 1000000, function () {
     Luts.Lock.unlock("autoInvest");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "roll5in5", "Cheating", "Roll 100 Five combos is a row", "Combo multi x1.2", 100, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "roll5in5", "作弊", "连续掷出 100 次五条组合", "连击倍率 x1.2", 100, function () {
     Luts.Value.get("comboMulti").setMultiplier("roll5in5", 1.2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "39cardsdrawable", "I dont need these", "Have 39 cards available for drawing at once", "Card progression x1.2", 39, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "39cardsdrawable", "这些我不需要", "同时可抽取 39 张牌", "卡牌进度 x1.2", 39, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("39cardsdrawable", 1.2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel10", "Duel Beginner", "Reach duel level 10", "Card progression x1.1", 10, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel10", "对决新手", "达到对决等级 10", "卡牌进度 x1.1", 10, function () {
     Luts.Value.get("cardProgressMulti").setMultiplier("duelLevel10", 1.1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel30", "Duel Apprentice", "Reach duel level 30", "Roulette Animation Duration -25%", 30, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel30", "对决学徒", "达到对决等级 30", "轮盘动画时长 -25%", 30, function () {
     Luts.Value.get("rouletteAnim").setMultiplier("duelLevel30", 0.75);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel50", "Duel Advanced", "Reach duel level 50", "Auto Slot Spin speed +1", 50, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel50", "对决进阶", "达到对决等级 50", "自动老虎机旋转速度 +1", 50, function () {
     Luts.Value.get("autoSlotSpinInterval").setMultiplier("duelLevel50", 1, 1);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel100", "Duel Expert", "Reach duel level 100", "Interest x2", 100, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel100", "对决专家", "达到对决等级 100", "利息 x2", 100, function () {
     Luts.Value.get("interest").setMultiplier("duelLevel100", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel150", "Duel Master", "Reach duel level 150", "Auto Upgrade buys all instead of one", 150, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel150", "对决大师", "达到对决等级 150", "自动升级改为全部购买", 150, function () {
     Luts.Lock.unlock("autoUpgradeAll");
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel250", "Duel Grand Master", "Reach duel level 250", "Slot spins from roulette prestige x2", 250, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel250", "对决宗师", "达到对决等级 250", "来自轮盘转生的老虎机旋转 x2", 250, function () {
     Luts.Value.get("slotSpinMulti").setMultiplier("duelLevel250", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel500", "Duel Champion", "Reach duel level 500", "Skillpoint Multi x2", 500, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel500", "对决冠军", "达到对决等级 500", "技能点倍率 x2", 500, function () {
     Luts.Value.get("skillPointMulti").setMultiplier("duelLevel500", 2);
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel1000", "Duel Grand Champion", "Reach duel level 1000", "Gain 0.0001% of current potential Prestige Multi as Prestige Multi each roll", 1000, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "duelLevel1000", "对决至高冠军", "达到对决等级 1000", "每次掷骰获得当前潜在转生倍率的 0.0001% 作为转生倍率", 1000, function () {
     Luts.Value.get("prestigeGain").set(Decimal(0.000001));
   }.bind(this));
-  Luts.Object.AchievementsHandler.add("lutslike", "collector89", "Collector", "Collect 89 duel dice", "Interest x2", 89, function () {
+  Luts.Object.AchievementsHandler.add("lutslike", "collector89", "收藏家", "收集 89 个对决骰子", "利息 x2", 89, function () {
     Luts.Value.get("interest").setMultiplier("collector89", 2);
   }.bind(this));
   Luts.Events.onAchievementUnlocked.add(function (_0x2e65ec) {
@@ -43963,7 +43963,7 @@ Luts.Object.Dice = function (_0x43d8d6, _0x55258c, _0x18de0d, _0x10fa39, _0x323e
   this.diceImage.anchor.set(0.5);
   this.addChild(this.diceImage);
   if (this.isMulti) {
-    new Luts.Object.Tooltip(_0x339f1d, this.diceImage, "The points of this dice will multiply the total score you made. Multiplicative with other mutliplier dice");
+    new Luts.Object.Tooltip(_0x339f1d, this.diceImage, "该骰子的点数将乘上你的总得分，并与其他倍率骰子相乘");
   }
   this.diceNumber = new Luts.Object.Text(this.state, 0, 0, "regular", "1", 24);
   this.diceNumber.anchor.set(0.5);
@@ -44000,7 +44000,7 @@ Luts.Object.Dice = function (_0x43d8d6, _0x55258c, _0x18de0d, _0x10fa39, _0x323e
     this.updateText();
   }.bind(this));
   this.addChild(this.upgradeButton);
-  this.ascendButton = new Luts.Object.Button(this.state, 0, 180, Luts.Format.Color("red") + "Ascend", "", this.ascent.bind(this));
+  this.ascendButton = new Luts.Object.Button(this.state, 0, 180, Luts.Format.Color("red") + "升华", "", this.ascent.bind(this));
   this.addChild(this.ascendButton);
   Luts.Events.onCurrencyChanged[0].add(this.updateText, this);
   Luts.Events.onBuyAmountChanged[0].add(this.updateText, this);
@@ -44202,8 +44202,8 @@ Luts.DiceRules.getData = function (_0xff5d47) {
     case Luts.DiceRules.Match.NOTHING:
       break;
     case Luts.DiceRules.Match.FIVER:
-      _0x46ce65.displayName = "FIVE!!!!!!1";
-      _0x46ce65.name = "Five";
+      _0x46ce65.displayName = "五同!!!!!!";
+      _0x46ce65.name = "五同";
       _0x46ce65.minDices = 5;
       _0x46ce65.chance = 0.00077;
       _0x46ce65.multi = 1500;
@@ -44211,8 +44211,8 @@ Luts.DiceRules.getData = function (_0xff5d47) {
       _0x46ce65.price = 50;
       break;
     case Luts.DiceRules.Match.FULLHOUSE:
-      _0x46ce65.displayName = "FULLHOUSE!!";
-      _0x46ce65.name = "Full House";
+      _0x46ce65.displayName = "葫芦!!";
+      _0x46ce65.name = "葫芦";
       _0x46ce65.minDices = 5;
       _0x46ce65.chance = 0.038;
       _0x46ce65.multi = 30;
@@ -44220,8 +44220,8 @@ Luts.DiceRules.getData = function (_0xff5d47) {
       _0x46ce65.price = 50;
       break;
     case Luts.DiceRules.Match.FOUR:
-      _0x46ce65.displayName = "FOUR!!!";
-      _0x46ce65.name = "Four";
+      _0x46ce65.displayName = "四条!!!";
+      _0x46ce65.name = "四条";
       _0x46ce65.minDices = 4;
       _0x46ce65.chance = 0.019;
       _0x46ce65.multi = 60;
@@ -44229,8 +44229,8 @@ Luts.DiceRules.getData = function (_0xff5d47) {
       _0x46ce65.price = 50;
       break;
     case Luts.DiceRules.Match.TRIPLET:
-      _0x46ce65.displayName = "Triplet!!";
-      _0x46ce65.name = "Triplet";
+      _0x46ce65.displayName = "三条!!";
+      _0x46ce65.name = "三条";
       _0x46ce65.minDices = 3;
       _0x46ce65.chance = 0.154;
       _0x46ce65.multi = 7;
@@ -44238,8 +44238,8 @@ Luts.DiceRules.getData = function (_0xff5d47) {
       _0x46ce65.price = 50;
       break;
     case Luts.DiceRules.Match.PAIR:
-      _0x46ce65.displayName = "Pair";
-      _0x46ce65.name = "Pair";
+      _0x46ce65.displayName = "对子";
+      _0x46ce65.name = "对子";
       _0x46ce65.minDices = 2;
       _0x46ce65.chance = 0.3;
       _0x46ce65.multi = 2;
@@ -44247,8 +44247,8 @@ Luts.DiceRules.getData = function (_0xff5d47) {
       _0x46ce65.price = 50;
       break;
     case Luts.DiceRules.Match.STRAIGHT:
-      _0x46ce65.displayName = "STRAIGHT!";
-      _0x46ce65.name = "Straight";
+      _0x46ce65.displayName = "顺子!";
+      _0x46ce65.name = "顺子";
       _0x46ce65.minDices = 5;
       _0x46ce65.chance = 0.03;
       _0x46ce65.multi = 20;
@@ -44256,8 +44256,8 @@ Luts.DiceRules.getData = function (_0xff5d47) {
       _0x46ce65.price = 50;
       break;
     case Luts.DiceRules.Match.TWOPAIR:
-      _0x46ce65.displayName = "Two Pair!";
-      _0x46ce65.name = "Two Pair";
+      _0x46ce65.displayName = "两对!";
+      _0x46ce65.name = "两对";
       _0x46ce65.minDices = 4;
       _0x46ce65.chance = 0.2;
       _0x46ce65.multi = 5;
@@ -44914,13 +44914,13 @@ Luts.CardRules.data = function (_0xb770d1) {
   };
   switch (_0xb770d1 = Luts.CardRules.typeToString(_0xb770d1)) {
     case "2":
-      _0x54c598.desc = "Card progression per ascension x2";
+      _0x54c598.desc = "每次飞升的卡牌进度 x2";
       _0x54c598.onUpgrade = function (_0x20b232) {
         Luts.Value.get("cardProgressMulti").setMultiplier(_0x20b232.name, 2, null, "prestige");
       };
       break;
     case "3":
-      _0x54c598.desc = "All dice x3 multiplier";
+      _0x54c598.desc = "所有骰子乘数 x3";
       _0x54c598.onUpgrade = function (_0xdbe272) {
         Luts.Value.get("main0_multi").setMultiplier(_0xdbe272.name, 3, null, "prestige");
         Luts.Value.get("main1_multi").setMultiplier(_0xdbe272.name, 3, null, "prestige");
@@ -44930,51 +44930,51 @@ Luts.CardRules.data = function (_0xb770d1) {
       };
       break;
     case "4":
-      _0x54c598.desc = "Dice multiplier per ascension +4%";
+      _0x54c598.desc = "每次飞升的骰子乘数 +4%";
       _0x54c598.onUpgrade = function (_0x258aef) {
         Luts.Value.get("ascensionMulti").setMultiplier(_0x258aef.name, 1.04, null, "prestige");
       };
       break;
     case "5":
-      _0x54c598.desc = "All Combo multipliers x5";
+      _0x54c598.desc = "所有连击乘数 x5";
       _0x54c598.onUpgrade = function (_0x35aacb) {
         Luts.Value.get("comboMulti").setMultiplier(_0x35aacb.name, 5, null, "prestige");
       };
       break;
     case "6":
-      _0x54c598.desc = "5th dice multiplier x6";
+      _0x54c598.desc = "第5个骰子乘数 x6";
       _0x54c598.onUpgrade = function (_0x337daf) {
         Luts.Value.get("main4_multi").setMultiplier(_0x337daf.name, 6, null, "prestige");
       };
       break;
     case "7":
-      _0x54c598.desc = "4th dice multiplier x7";
+      _0x54c598.desc = "第4个骰子乘数 x7";
       _0x54c598.onUpgrade = function (_0x5ac2ef) {
         Luts.Value.get("main3_multi").setMultiplier(_0x5ac2ef.name, 7, null, "prestige");
       };
       break;
     case "8":
-      _0x54c598.desc = "3rd dice multiplier x8";
+      _0x54c598.desc = "第3个骰子乘数 x8";
       _0x54c598.onUpgrade = function (_0x183e82) {
         Luts.Value.get("main2_multi").setMultiplier(_0x183e82.name, 8, null, "prestige");
       };
       break;
     case "9":
-      _0x54c598.desc = "2nd dice multiplier x9";
+      _0x54c598.desc = "第2个骰子乘数 x9";
       _0x54c598.onUpgrade = function (_0x1e89af) {
         Luts.Value.get("main1_multi").setMultiplier(_0x1e89af.name, 9, null, "prestige");
       };
       break;
     case "10":
-      _0x54c598.desc = "1st dice multiplier x10";
+      _0x54c598.desc = "第1个骰子乘数 x10";
       _0x54c598.onUpgrade = function (_0x42a1a1) {
         Luts.Value.get("main0_multi").setMultiplier(_0x42a1a1.name, 10, null, "prestige");
       };
       break;
     case "J":
-      _0x54c598.desc = "Autoroll interval x50%";
+      _0x54c598.desc = "自动掷骰间隔 x50%";
       if (Luts.Lock.get("autoroll100").unlocked) {
-        _0x54c598.desc += "; All dice x2";
+        _0x54c598.desc += "; 所有骰子 x2";
       }
       _0x54c598.onUpgrade = function (_0x417478) {
         Luts.Value.get("rollInterval").setMultiplier(_0x417478.name, 0.5, null, "prestige");
@@ -44988,13 +44988,13 @@ Luts.CardRules.data = function (_0xb770d1) {
       };
       break;
     case "Q":
-      _0x54c598.desc = "+1 max multiplier dice";
+      _0x54c598.desc = "+1 最大乘数骰子";
       _0x54c598.onUpgrade = function (_0x2c72f2) {
         Luts.Value.get("multiDices").add(1);
       };
       break;
     case "K":
-      _0x54c598.desc = "Collect all kings for x10000 multiplier for all dice";
+      _0x54c598.desc = "收集所有国王卡，所有骰子乘数 x10000";
       _0x54c598.onUpgrade = function (_0x585fc0) {
         if (Luts.Upgrades.get("pikK").level >= 1 && Luts.Upgrades.get("heartK").level >= 1 && Luts.Upgrades.get("crossK").level >= 1 && Luts.Upgrades.get("caroK").level >= 1) {
           Luts.Value.get("main0_multi").setMultiplier("king", 10000, null, "prestige");
@@ -45006,7 +45006,7 @@ Luts.CardRules.data = function (_0xb770d1) {
       };
       break;
     case "A":
-      _0x54c598.desc = "Animation duration -20%; Chip Multi x2";
+      _0x54c598.desc = "动画持续时间 -20%; 筹码乘数 x2";
       _0x54c598.onUpgrade = function (_0x1e3f7a) {
         Luts.Value.get("rollAnim").setMultiplier(_0x1e3f7a.name, 0.8, null, "prestige");
         Luts.Value.get("chipMulti").setMultiplier(_0x1e3f7a.name, 2, null, "prestige");
@@ -45050,7 +45050,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.FASTFORWARD_1h:
       _0x470da1.icon += "ff";
       _0x470da1.text = "10m";
-      _0x470da1.name = "Fast Forward 10 minutes";
+      _0x470da1.name = "快进 10 分钟";
       _0x470da1.onUpgrade = function () {
         Luts.currentState.handleTimeAway({
           sec: 600
@@ -45060,7 +45060,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.FASTFORWARD_6h:
       _0x470da1.icon += "ff";
       _0x470da1.text = "20m";
-      _0x470da1.name = "Fast Forward 20 minutes!";
+      _0x470da1.name = "快进 20 分钟！";
       _0x470da1.onUpgrade = function () {
         Luts.currentState.handleTimeAway({
           sec: 1200
@@ -45070,7 +45070,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.FASTFORWARD_24h:
       _0x470da1.icon += "ff";
       _0x470da1.text = "1h";
-      _0x470da1.name = "Fast Forward 1 hour!!";
+      _0x470da1.name = "快进 1 小时！！";
       _0x470da1.onUpgrade = function () {
         Luts.currentState.handleTimeAway({
           sec: 3600
@@ -45080,7 +45080,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_1x2:
       _0x470da1.icon += "d1";
       _0x470da1.text = "x2";
-      _0x470da1.name = "1st Dice x2";
+      _0x470da1.name = "第1个骰子 x2";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(0, 2);
       };
@@ -45088,7 +45088,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_2x2:
       _0x470da1.icon += "d2";
       _0x470da1.text = "x2";
-      _0x470da1.name = "2nd Dice x2";
+      _0x470da1.name = "第2个骰子 x2";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(1, 2);
       };
@@ -45096,7 +45096,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_3x2:
       _0x470da1.icon += "d3";
       _0x470da1.text = "x2";
-      _0x470da1.name = "3rd Dice x2";
+      _0x470da1.name = "第3个骰子 x2";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(2, 2);
       };
@@ -45104,7 +45104,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_4x2:
       _0x470da1.icon += "d4";
       _0x470da1.text = "x2";
-      _0x470da1.name = "4th Dice x2";
+      _0x470da1.name = "第4个骰子 x2";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(3, 2);
       };
@@ -45112,7 +45112,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_5x2:
       _0x470da1.icon += "d5";
       _0x470da1.text = "x2";
-      _0x470da1.name = "5th Dice x2";
+      _0x470da1.name = "第5个骰子 x2";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(4, 2);
       };
@@ -45120,7 +45120,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_1x5:
       _0x470da1.icon += "d1";
       _0x470da1.text = "x5";
-      _0x470da1.name = "1st Dice x5!";
+      _0x470da1.name = "第1个骰子 x5！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(0, 5);
       };
@@ -45128,7 +45128,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_2x5:
       _0x470da1.icon += "d2";
       _0x470da1.text = "x5";
-      _0x470da1.name = "2nd Dice x5!";
+      _0x470da1.name = "第2个骰子 x5！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(1, 5);
       };
@@ -45136,7 +45136,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_3x5:
       _0x470da1.icon += "d3";
       _0x470da1.text = "x5";
-      _0x470da1.name = "3rd Dice x5!";
+      _0x470da1.name = "第3个骰子 x5！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(2, 5);
       };
@@ -45144,7 +45144,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_4x5:
       _0x470da1.icon += "d4";
       _0x470da1.text = "x5";
-      _0x470da1.name = "4th Dice x5!";
+      _0x470da1.name = "第4个骰子 x5！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(3, 5);
       };
@@ -45152,7 +45152,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_5x5:
       _0x470da1.icon += "d5";
       _0x470da1.text = "x5";
-      _0x470da1.name = "5th Dice x5!";
+      _0x470da1.name = "第5个骰子 x5！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(4, 5);
       };
@@ -45160,7 +45160,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_1x10:
       _0x470da1.icon += "d1";
       _0x470da1.text = "x10";
-      _0x470da1.name = "1st Dice x10!!";
+      _0x470da1.name = "第1个骰子 x10！！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(0, 10);
       };
@@ -45168,7 +45168,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_2x10:
       _0x470da1.icon += "d2";
       _0x470da1.text = "x10";
-      _0x470da1.name = "2nd Dice x10!!";
+      _0x470da1.name = "第2个骰子 x10！！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(1, 10);
       };
@@ -45176,7 +45176,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_3x10:
       _0x470da1.icon += "d3";
       _0x470da1.text = "x10";
-      _0x470da1.name = "3rd Dice x10!!";
+      _0x470da1.name = "第3个骰子 x10！！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(2, 10);
       };
@@ -45184,7 +45184,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_4x10:
       _0x470da1.icon += "d4";
       _0x470da1.text = "x10";
-      _0x470da1.name = "4th Dice x10!!";
+      _0x470da1.name = "第4个骰子 x10！！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(3, 10);
       };
@@ -45192,7 +45192,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.MULTI_5x10:
       _0x470da1.icon += "d5";
       _0x470da1.text = "x10";
-      _0x470da1.name = "5th Dice x10!!";
+      _0x470da1.name = "第5个骰子 x10！！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.diceMulti(4, 10);
       };
@@ -45200,7 +45200,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.CARD_2:
       _0x470da1.icon += "card";
       _0x470da1.text = "x2";
-      _0x470da1.name = "Card progression x2";
+      _0x470da1.name = "卡牌进度 x2";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.cardMulti(2);
       };
@@ -45208,7 +45208,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.CARD_3:
       _0x470da1.icon += "card";
       _0x470da1.text = "x3";
-      _0x470da1.name = "Card progression x3!";
+      _0x470da1.name = "卡牌进度 x3！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.cardMulti(3);
       };
@@ -45216,7 +45216,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.CARD_5:
       _0x470da1.icon += "card";
       _0x470da1.text = "x5";
-      _0x470da1.name = "Card progression x5!!";
+      _0x470da1.name = "卡牌进度 x5！！";
       _0x470da1.onUpgrade = function () {
         Luts.Object.RouletteRules.cardMulti(5);
       };
@@ -45224,7 +45224,7 @@ Luts.Object.RouletteRules.data = function (_0x5f21c2) {
     case Luts.Object.RouletteRules.reward.UPGRADE:
       _0x470da1.icon += "upgrade";
       _0x470da1.text = "";
-      _0x470da1.name = "Roulette Upgrade!!";
+      _0x470da1.name = "转盘升级！！";
       _0x470da1.onUpgrade = function () {
         Luts.Value.get("rouletteLevel").add(Luts.Upgrades.value("rouletteUpgradeMulti"));
       };
