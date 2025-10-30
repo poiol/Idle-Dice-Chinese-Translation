@@ -40885,13 +40885,13 @@ Luts.Object.HistoryWindow.prototype.addStatistic = function (_0x42b78d) {
   return _0x485dc0;
 };
 Luts.Object.AchievementsWindow = function (_0x3b96b4) {
-  Luts.Object.Window.call(this, _0x3b96b4, "Achievements");
+  Luts.Object.Window.call(this, _0x3b96b4, "成就");
   this.tabs = new Luts.Object.TabManager(_0x3b96b4, 0, 0);
-  this.basicTab = this.addTab("basic", "Basic");
-  this.advTab = this.addTab("advanced", "Advanced");
-  this.expertTab = this.addTab("expert", "Expert");
-  this.legendaryTab = this.addTab("legendary", "Legendary");
-  this.godlikeTab = this.addTab("godlike", "Godlike");
+  this.basicTab = this.addTab("basic", "基础");
+  this.advTab = this.addTab("advanced", "高级");
+  this.expertTab = this.addTab("expert", "专家");
+  this.legendaryTab = this.addTab("legendary", "传说");
+  this.godlikeTab = this.addTab("godlike", "神级");
   this.lutslikeTab = this.addTab("lutslike", "Lutslike");
   Luts.Lock.unlock("basicAchievements");
   this.tabs.show("basic");
@@ -40906,7 +40906,7 @@ Luts.Object.AchievementsWindow = function (_0x3b96b4) {
     _0x57bd3e.addChild(_0x2a7a36);
     _0x57bd3e.addChild(_0x30935a);
     _0x57bd3e.addChild(_0x1c9a12);
-    new Luts.Object.Tooltip(_0x3b96b4, _0x1c9a12, "Reward:\n" + _0x1747d8.unlockText);
+    new Luts.Object.Tooltip(_0x3b96b4, _0x1c9a12, "奖励:\n" + _0x1747d8.unlockText);
     _0x3adfd6.bars.push(_0x1c9a12);
     _0x3adfd6.scroll.addToScrollGroup(_0x57bd3e);
     _0x3adfd6.scrollIndex++;
@@ -40939,7 +40939,7 @@ Luts.Object.AchievementsWindow.prototype.update = function () {
             _0x52854e.barText.text = Luts.Format.Decimal(_0x52854e.a.value) + "/" + Luts.Format.Decimal(_0x52854e.a.goal);
             _0x52854e.stepTo(_0x52854e.a.value.dividedBy(_0x52854e.a.goal), 0.1);
           } else {
-            _0x52854e.barText.text = "DONE!";
+            _0x52854e.barText.text = "已完成!";
             _0x52854e.setTo(1);
           }
           _0x52854e.update();
@@ -40949,7 +40949,7 @@ Luts.Object.AchievementsWindow.prototype.update = function () {
   }
 };
 Luts.Object.RouletteWindow = function (_0x3c5b3d) {
-  Luts.Object.Window.call(this, _0x3c5b3d, "Roulette");
+  Luts.Object.Window.call(this, _0x3c5b3d, "轮盘");
   this.rnd = new Phaser.RandomDataGenerator(Luts.Store.getItem("rouletteRng", Date.now()));
   this.rouletteUpgrades = [Luts.Upgrades.add("rouletteLevelUpgrade", "等级 +", "增加轮盘的等级", 5, 0, 5, 1, null, 0, null, 4), Luts.Upgrades.add("rouletteFocusUpgrade", "专注", "下一次旋转必中您的专注目标", 1, 0, 4, 1, null, 0, null, 4)];
   Luts.Upgrades.get("rouletteLevelUpgrade").onUpgrade.add(function () {
@@ -45522,26 +45522,26 @@ Luts.Object.BonusUpgradeButton = function (_0x3244ca, _0x5442e4, _0x15307d, _0x5
 Luts.Object.BonusUpgradeButton.prototype.constructor = Luts.Object.BonusUpgradeButton;
 Luts.Object.BonusUpgradeButton.prototype = Object.create(Luts.Object.Button.prototype);
 Luts.Object.BonusUpgradeButton.prototype.clickUpgrade = function () {
-  new Luts.Object.Popup(this.state, "Are you sure to purchase " + this.upgrade.displayName + " for " + this.upgrade.price + "BP?\n" + this.upgrade.description, true, function (_0x1ba29b) {
+  new Luts.Object.Popup(this.state, "确定要花费 " + this.upgrade.price + " 奖励点购买 " + this.upgrade.displayName + " 吗？\n" + this.upgrade.description, true, function (_0x1ba29b) {
     if (_0x1ba29b) {
       var _0xe570c = Luts.Upgrades.upgradeMultiple(this.upgrade, 1);
       this.updateText();
       this.state.shopWindow.applyUpgrades();
       if (!_0xe570c) {
         if (Luts.Ad.enabled) {
-          new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Do you want to watch an Ad to get 5 BPs?", true, function (_0x2225d6) {
+          new Luts.Object.Popup(this.state, "您的奖励点不足。是否观看广告获得 5 奖励点？", true, function (_0x2225d6) {
             if (_0x2225d6) {
               this.state.shopWindow.requestAdForBp();
             }
           }.bind(this));
         } else if (Luts.mtxEnabled && Luts.Connect.kong) {
-          new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Do you want to get more?", true, function (_0x324db1) {
+          new Luts.Object.Popup(this.state, "您的奖励点不足。是否获取更多奖励点？", true, function (_0x324db1) {
             if (_0x324db1) {
               this.state.mtxClicked();
             }
           }.bind(this));
         } else {
-          new Luts.Object.Popup(this.state, "You dont have enough Bonus Points. Check in daily and unlock achievements to get more BP");
+          new Luts.Object.Popup(this.state, "您的奖励点不足。请每日签到和解锁成就以获得更多奖励点");
         }
       }
     }
